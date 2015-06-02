@@ -79,5 +79,21 @@ public class StoreInfo
         this.canScrape = value;
     }
  
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("image_link")
+    public String getImageLink ( ) { 
+        return this.imageLink;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("image_link")
+    public void setImageLink (String value) { 
+        this.imageLink = value;
+    }
+ 
 }
  
