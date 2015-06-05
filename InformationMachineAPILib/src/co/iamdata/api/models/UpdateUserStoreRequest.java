@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateUserStoreRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5444875901192848280L;
+    private static final long serialVersionUID = 4643985540326198660L;
     private String username;
     private String password;
     /** GETTER

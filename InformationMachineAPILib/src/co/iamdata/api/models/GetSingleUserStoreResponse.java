@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSingleUserStoreResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5752957120322426812L;
+    private static final long serialVersionUID = 5634928123212250921L;
     private UserData user;
     private Integer id;
     private String storeName;

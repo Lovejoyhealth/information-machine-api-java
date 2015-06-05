@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ProductData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5529907816504335023L;
+    private static final long serialVersionUID = 4737807778780827102L;
     private List<NutrientData> nutrients;
     private List<String> recipes;
     private Integer visibilityCount;
@@ -32,6 +32,7 @@ public class ProductData
     private String upc;
     private List<String> tags;
     private String category;
+    private Integer categoryId;
     private String name;
     private Integer id;
     /** GETTER
@@ -352,6 +353,22 @@ public class ProductData
     @JsonSetter("category")
     public void setCategory (String value) { 
         this.category = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("category_id")
+    public Integer getCategoryId ( ) { 
+        return this.categoryId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("category_id")
+    public void setCategoryId (Integer value) { 
+        this.categoryId = value;
     }
  
     /** GETTER

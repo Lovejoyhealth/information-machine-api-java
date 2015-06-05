@@ -55,7 +55,7 @@ public class LookupController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5428530544653318938L;
+            private static final long serialVersionUID = 5429779326964566210L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -66,9 +66,9 @@ public class LookupController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4734527216586803329L;
+            private static final long serialVersionUID = 5161176163165489095L;
             {
-                    put( "user-agent", "IAMDATA V1" );
+                    put( "user-agent", "APIMATIC 2.0" );
                     put( "accept", "application/json" );
             }
         };
@@ -111,7 +111,7 @@ public class LookupController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4943338571826273435L;
+            private static final long serialVersionUID = 4811058869272837051L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -122,9 +122,9 @@ public class LookupController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5221589323206157947L;
+            private static final long serialVersionUID = 4665891400187595076L;
             {
-                    put( "user-agent", "IAMDATA V1" );
+                    put( "user-agent", "APIMATIC 2.0" );
                     put( "accept", "application/json" );
             }
         };
@@ -154,7 +154,7 @@ public class LookupController extends BaseController {
     }
         
     /**
-     * Get a list of all potential product categories.  Product categories follow a hierarchical structure that is defined through the “parent_id” field.
+     * Get a list of all potential product categories.  Product categories follow a hierarchical structure that is defined through the parent_id field.
 	 * @return	Returns the GetCategoriesWrapper response from the API call*/
     public GetCategoriesWrapper lookupGetCategories(
     ) throws IOException, APIException {
@@ -167,7 +167,7 @@ public class LookupController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5470752475812304833L;
+            private static final long serialVersionUID = 5423559223310694677L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -178,9 +178,9 @@ public class LookupController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5325703144061510525L;
+            private static final long serialVersionUID = 4944106191520635880L;
             {
-                    put( "user-agent", "IAMDATA V1" );
+                    put( "user-agent", "APIMATIC 2.0" );
                     put( "accept", "application/json" );
             }
         };
@@ -223,7 +223,7 @@ public class LookupController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5687224656154197159L;
+            private static final long serialVersionUID = 4763752029677366749L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -234,9 +234,9 @@ public class LookupController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5211849403311330268L;
+            private static final long serialVersionUID = 5359599844217204538L;
             {
-                    put( "user-agent", "IAMDATA V1" );
+                    put( "user-agent", "APIMATIC 2.0" );
                     put( "accept", "application/json" );
             }
         };
@@ -266,7 +266,7 @@ public class LookupController extends BaseController {
     }
         
     /**
-     * Get a list of all stores in the IM API infrastructure. This list is constantly expanding. For stores that have “can_scrape” flag set to “1”, you can use the IM infrastructure to retrieve purchase history. To do this, connect the store using the endpoints under the “Users” section below.
+     * Get a list of all stores in the IM API infrastructure. This list is constantly expanding. For stores that have can_scrape flag set to "1", you can use the IM infrastructure to retrieve purchase history. To do this, connect the store using the endpoints under the Users section below.
 	 * @return	Returns the GetStoresWrapper response from the API call*/
     public GetStoresWrapper lookupGetStores(
     ) throws IOException, APIException {
@@ -279,7 +279,7 @@ public class LookupController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5386713101133901579L;
+            private static final long serialVersionUID = 4793280669505877286L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -290,9 +290,9 @@ public class LookupController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4854187368455581652L;
+            private static final long serialVersionUID = 4716508598522900157L;
             {
-                    put( "user-agent", "IAMDATA V1" );
+                    put( "user-agent", "APIMATIC 2.0" );
                     put( "accept", "application/json" );
             }
         };
@@ -335,7 +335,7 @@ public class LookupController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5432127060650935537L;
+            private static final long serialVersionUID = 5723003056977075599L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -346,9 +346,9 @@ public class LookupController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5573654333247554520L;
+            private static final long serialVersionUID = 5500473488326546984L;
             {
-                    put( "user-agent", "IAMDATA V1" );
+                    put( "user-agent", "APIMATIC 2.0" );
                     put( "accept", "application/json" );
             }
         };

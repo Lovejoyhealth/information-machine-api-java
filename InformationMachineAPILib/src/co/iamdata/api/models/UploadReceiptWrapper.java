@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UploadReceiptWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5229400014014083675L;
+    private static final long serialVersionUID = 4932356407665122599L;
     private String result;
     private MetaBase meta;
     /** GETTER

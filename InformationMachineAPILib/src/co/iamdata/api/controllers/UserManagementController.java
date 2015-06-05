@@ -17,7 +17,7 @@ import co.iamdata.api.http.response.HttpStringResponse;
 import co.iamdata.api.*;
 import co.iamdata.api.models.*;
 
-public class UsersController extends BaseController {
+public class UserManagementController extends BaseController {
 
     //private fields for configuration
 
@@ -29,14 +29,14 @@ public class UsersController extends BaseController {
 
    /**
     * Constructor with authentication and configuration parameters */
-    public UsersController (String clientId, String clientSecret) {
+    public UserManagementController (String clientId, String clientSecret) {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
     }
 
    /**
     * Constructor with authentication and configuration parameters */
-    public UsersController (HttpClient _client, String clientId, String clientSecret) {
+    public UserManagementController (HttpClient _client, String clientId, String clientSecret) {
         super(_client);
         this.clientId = clientId;
         this.clientSecret = clientSecret;
@@ -47,7 +47,7 @@ public class UsersController extends BaseController {
      * @param    page    Optional parameter: TODO: type description here
      * @param    perPage    Optional parameter: default:10, max:50
 	 * @return	Returns the GetAllUsersWrapper response from the API call*/
-    public GetAllUsersWrapper usersGetAllUsers(
+    public GetAllUsersWrapper userManagementGetAllUsers(
             final Integer page,
             final Integer perPage
     ) throws IOException, APIException {
@@ -60,7 +60,7 @@ public class UsersController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5030613243830324847L;
+            private static final long serialVersionUID = 5751795682365401646L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
@@ -73,7 +73,7 @@ public class UsersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5745861585746512557L;
+            private static final long serialVersionUID = 5080017475582475868L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -105,10 +105,10 @@ public class UsersController extends BaseController {
     }
         
     /**
-     * Register a new user by specifying "email", "zip" and "user_id". The “user_id” is mandatory and it represents the identifier you will use to identify your user in the IM API infrastructure.Note: The following characters are restricted within "user_id" string ---&gt; { '/', '^', '[', '-', '\\', 'w', '.', ']', '+', '$', '/' }
+     * Register a new user by specifying "email", "zip" and "user_id". The “user_id” is mandatory and it represents the identifier you will use to identify your user in the IM API infrastructure.Note: The following characters are restricted within "user_id" string ---&gt; { '/', '^', '[',  '\\', 'w', '.', ']', '+', '$', '/' }
      * @param    payload    Required parameter: TODO: type description here
 	 * @return	Returns the CreateUserWrapper response from the API call*/
-    public CreateUserWrapper usersCreateUser(
+    public CreateUserWrapper userManagementCreateUser(
             final RegisterUserRequest payload
     ) throws IOException, APIException, JsonProcessingException {
         //the base uri for api requests
@@ -120,7 +120,7 @@ public class UsersController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5159402940010886023L;
+            private static final long serialVersionUID = 4882104293958296313L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -131,7 +131,7 @@ public class UsersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5398642472344671120L;
+            private static final long serialVersionUID = 5359177825510715532L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -173,7 +173,7 @@ public class UsersController extends BaseController {
      * Delete a user from the IM API infrastructure by specifying user's "id".
      * @param    id    Required parameter: TODO: type description here
 	 * @return	Returns the DeleteUserWrapper response from the API call*/
-    public DeleteUserWrapper usersDeleteUser(
+    public DeleteUserWrapper userManagementDeleteUser(
             final String id
     ) throws IOException, APIException {
         //the base uri for api requests
@@ -185,7 +185,7 @@ public class UsersController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5250680668651208355L;
+            private static final long serialVersionUID = 5430976412542114775L;
             {
                     put( "id", id );
                     put( "client_id", clientId );
@@ -197,7 +197,7 @@ public class UsersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4680226886670236175L;
+            private static final long serialVersionUID = 4816264522504147397L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -229,10 +229,10 @@ public class UsersController extends BaseController {
     }
         
     /**
-     * Get user associated with your account specifying “id”.
+     * Get user associated with your account specifying “id” of a user.
      * @param    id    Required parameter: TODO: type description here
 	 * @return	Returns the GetSingleUserWrapper response from the API call*/
-    public GetSingleUserWrapper usersGetSingleUser(
+    public GetSingleUserWrapper userManagementGetSingleUser(
             final String id
     ) throws IOException, APIException {
         //the base uri for api requests
@@ -244,14 +244,14 @@ public class UsersController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5087933976118631784L;
+            private static final long serialVersionUID = 5316030437088280580L;
             {
                     put( "id", id );
             }});
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4941711290585007305L;
+            private static final long serialVersionUID = 4722184682345297500L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -262,7 +262,7 @@ public class UsersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5225447757849562861L;
+            private static final long serialVersionUID = 4939630708798637598L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );

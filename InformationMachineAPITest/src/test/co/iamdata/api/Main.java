@@ -45,11 +45,10 @@ public class Main {
         String email = "testuser@iamdata.co";
         String userId = "testuserId1234";
 
-        UsersController usersController = new UsersController(clientId, clientSecret);
-        StoresController storesController = new StoresController(clientId, clientSecret);
-        PurchasesController purchasesController = new PurchasesController(clientId, clientSecret);
-        BarcodeController barcodeController = new BarcodeController(clientId, clientSecret);
-        ReceiptController receiptController = new ReceiptController(clientId, clientSecret);
+        UserManagementController usersController = new UserManagementController(clientId, clientSecret);
+        UserStoresController storesController = new UserStoresController(clientId, clientSecret);
+        UserPurchasesController purchasesController = new UserPurchasesController(clientId, clientSecret);
+        UserScansController userScansController = new UserScansController(clientId, clientSecret);
 
         UsersControllerTest(email, usersController, userId);
 
@@ -59,19 +58,19 @@ public class Main {
         receiptRequest.setImage(encodedImage);
         receiptRequest.setReceiptId(receiptId);
         
-        receiptController.receiptUploadReceipt(receiptRequest, userId);
+        userScansController.userScansUploadReceipt(receiptRequest, userId);
 
         ConnectUserStoreRequest storeConnect = new ConnectUserStoreRequest();
         storeConnect.setStoreId(superMarketId);
         storeConnect.setUsername(username);
         storeConnect.setPassword(password);
         
-        ConnectUserStoreResponse userStore = storesController.storesConnectStore(storeConnect, userId).getResult();
+        ConnectUserStoreResponse userStore = storesController.userStoresConnectStore(storeConnect, userId).getResult();
 
         Boolean storeConnectionValid = checkStoreValidity(storesController, userId, userStore.getId());
         if (!storeConnectionValid)
         {
-            storesController.storesDeleteSingleStore(userId, userStore.getId());
+            storesController.userStoresDeleteSingleStore(userId, userStore.getId());
             throw new APITestException("Error: could not connect to store");
         }
 
@@ -79,14 +78,14 @@ public class Main {
         updateUserStoreRequest.setUsername(username);
         updateUserStoreRequest.setPassword(password);
 
-        storesController.storesUpdateStoreConnection(updateUserStoreRequest, userId, userStore.getId());
+        storesController.userStoresUpdateStoreConnection(updateUserStoreRequest, userId, userStore.getId());
 
         if (!waitForScrapeToFinish(storesController, userId, userStore.getId()))
         {
             throw new APITestException("Error: scrape is not finished");
         }
 
-        List<UserStore> stores = storesController.storesGetAllStores(userId, 1, 10).getResult();
+        List<UserStore> stores = storesController.userStoresGetAllStores(userId, 1, 10).getResult();
         if (stores.size() == 0 || stores.get(0).getId() <= 0)
         {
             throw new APITestException("Error: could not get all stores");
@@ -98,13 +97,13 @@ public class Main {
             throw new APITestException("Error: get user products");
         }
 
-        List<UserPurchase> userPurchases = purchasesController.purchasesGetAllUserPurchases(userId, 1, 15, true).getResult();
+        List<UserPurchase> userPurchases = purchasesController.userPurchasesGetAllUserPurchases(userId, 1, 15, true).getResult();
         if (userPurchases.size() == 0)
         {
             throw new APITestException("Error: get all user purchases");
         }
 
-        UserPurchase userPurchase = purchasesController.purchasesGetSingleUserPurchase(userId, userPurchases.get(0).getId().toString(), true).getResult();
+        UserPurchase userPurchase = purchasesController.userPurchasesGetSingleUserPurchase(userId, userPurchases.get(0).getId().toString(), true).getResult();
         if (userPurchase == null || !userPurchase.getId().equals(userPurchases.get(0).getId()))
         {
             throw new APITestException("Error: get single user purchases");
@@ -114,23 +113,23 @@ public class Main {
         barcodeRequest.setBarCode("021130126026");
         barcodeRequest.setBarCodeType("UPC-A");
         
-        UploadBarcodeResponse barcodeResponse = barcodeController.barcodeUploadBarcode(barcodeRequest, userId).getResult();
+        UploadBarcodeResponse barcodeResponse = userScansController.userScansUploadBarcode(barcodeRequest, userId).getResult();
         if (!barcodeResponse.getBarCodeType().equals("UPC-A") || !barcodeResponse.getBarCode().equals("021130126026"))
         {
             throw new APITestException("Error: upload barcode");
         }
 
-        storesController.storesDeleteSingleStore(userId, userStore.getId());
+        storesController.userStoresDeleteSingleStore(userId, userStore.getId());
 
-        usersController.usersDeleteUser(userId);
+        usersController.userManagementDeleteUser(userId);
     }
 
 	private static Boolean waitForScrapeToFinish(
-			StoresController storesController, String userIdentifier,
+			UserStoresController storesController, String userIdentifier,
 			int storeId) throws IOException, APIException, InterruptedException {
 		// try to see if the users credentials are valid
 		for (int i = 0; i < 30; i++) {
-			GetSingleStoresWrapper connectedStore = storesController.storesGetSingleStore(
+			GetSingleStoresWrapper connectedStore = storesController.userStoresGetSingleStore(
 					userIdentifier, storeId);
 
 			if (connectedStore != null
@@ -144,16 +143,20 @@ public class Main {
 		return false;
 	}
 
-	private static Boolean checkStoreValidity(StoresController storesController,
+	private static Boolean checkStoreValidity(UserStoresController storesController,
 			String userIdentifier, Integer storeId) throws IOException, APIException, InterruptedException {
 		// try to see if the users credentials are valid
 		for (int i = 0; i < 15; i++) {
-			GetSingleStoresWrapper connectedStore = storesController.storesGetSingleStore(
+			GetSingleStoresWrapper connectedStore = storesController.userStoresGetSingleStore(
 					userIdentifier, storeId);
 
-			if (connectedStore != null
-					&& connectedStore.getResult().getCredentialsStatus().equals("Verified")) {
-				return true;
+			if (connectedStore != null){
+				if(connectedStore.getResult().getCredentialsStatus().equals("Verified")) {
+					return true;
+				}
+				if(connectedStore.getResult().getCredentialsStatus().equals("Invalid")) {
+					return false;
+				}
 			}
 
 			Thread.sleep(3000);
@@ -162,28 +165,28 @@ public class Main {
 		return false;
 	}
 
-	private static void UsersControllerTest(String email, UsersController usersController, String userId) throws APITestException, JsonProcessingException, IOException, APIException
+	private static void UsersControllerTest(String email, UserManagementController usersController, String userId) throws APITestException, JsonProcessingException, IOException, APIException
     {
         RegisterUserRequest registerUserRequest = new RegisterUserRequest();
         registerUserRequest.setEmail(email);
         registerUserRequest.setUserId(userId);
         registerUserRequest.setZip("21000");
 
-        CreateUserWrapper user = usersController.usersCreateUser(registerUserRequest);
+        CreateUserWrapper user = usersController.userManagementCreateUser(registerUserRequest);
 
         if (!user.getResult().getEmail().equals(email) || !user.getResult().getUserId().equals(userId))
         {
             throw new APITestException("Error: create user");
         }
 
-        GetAllUsersWrapper allUsers = usersController.usersGetAllUsers(1, 10);
+        GetAllUsersWrapper allUsers = usersController.userManagementGetAllUsers(1, 10);
 
         if (allUsers.getResult().size() == 0)
         {
             throw new APITestException("Error: get all users");
         }
 
-        GetSingleUserWrapper userResponse = usersController.usersGetSingleUser(userId);
+        GetSingleUserWrapper userResponse = usersController.userManagementGetSingleUser(userId);
         if (!userResponse.getResult().getEmail().equals(email))
         {
             throw new APITestException("Error: get single user");
@@ -239,7 +242,7 @@ public class Main {
 
 	private static void ProductsControllerTest(
 			ProductsController productsController) throws APITestException, IOException, APIException {
-		List<ProductData> kaleProducts = productsController.productsGetProducts("Kale", null, 1, 25, true).getResult();
+		List<ProductData> kaleProducts = productsController.productsSearchProducts("Kale", null, 1, 25, null, true).getResult();
 		if (kaleProducts.size() == 0 || kaleProducts.get(0).getName() == null) {
 			throw new APITestException("Error: get products");
 		}
@@ -249,20 +252,20 @@ public class Main {
 			throw new APITestException("Error: get detail product info");
 		}
 
-		List<ProductData> secondPageKaleProducts = productsController.productsGetProducts("Kale", null, 2, 25, true).getResult();
+		List<ProductData> secondPageKaleProducts = productsController.productsSearchProducts("Kale", null, 2, 25, null, true).getResult();
 		if (secondPageKaleProducts.size() == 0
 				|| secondPageKaleProducts.get(0).getName() == null
 				|| secondPageKaleProducts.get(0).getId().equals(kaleProducts.get(0).getId())) {
 			throw new APITestException("Error: get 2nd page products");
 		}
 
-		List<ProductData> upcProduct = productsController.productsGetProducts(null, "014100044208", 1, 25, true).getResult();
+		List<ProductData> upcProduct = productsController.productsSearchProducts(null, "014100044208", 1, 25, null, true).getResult();
 		if (upcProduct.size() == 0
 				|| !upcProduct.get(0).getName().equals("Pepperidge Farm Classic BBQ Cracker Chips, 6 Oz")) {
 			throw new APITestException("Error: get upc products");
 		}
 
-		List<ProductData> eanProduct = productsController.productsGetProducts(null, "096619872404", null, null, true).getResult();
+		List<ProductData> eanProduct = productsController.productsSearchProducts(null, "096619872404", null, null, null, true).getResult();
 		if (eanProduct.size() == 0
 				|| !eanProduct.get(0).getName().equals("Beckett Basketball Monthly Houston Rocket English")) {
 			throw new APITestException("Error: get ean products");
@@ -271,12 +274,6 @@ public class Main {
 		ProductData productFull = productsController.productsGetProduct("380728", true).getResult();
 		if (productFull == null
 				|| !productFull.getName().equals("Peanut Butter Chocolate Party Size Candies")) {
-			throw new APITestException("Error: get full product");
-		}
-
-		List<ProductData> productAlternatives = productsController.productsGetProductAlternatives("120907","7").getResult();
-		if (productAlternatives.size() == 0
-				|| !productAlternatives.get(0).getName().equals("Roland Feng Shui Green Peas Hot Wasabi Coated")) {
 			throw new APITestException("Error: get full product");
 		}
 

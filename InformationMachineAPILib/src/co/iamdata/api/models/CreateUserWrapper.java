@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateUserWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4822139516371845214L;
+    private static final long serialVersionUID = 5704916008158249878L;
     private RegisterUserResponse result;
     private MetaBase meta;
     /** GETTER

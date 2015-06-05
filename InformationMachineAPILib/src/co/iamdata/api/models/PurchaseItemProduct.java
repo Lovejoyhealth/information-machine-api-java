@@ -10,10 +10,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PurchaseItemProduct 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5211267812700287679L;
+    private static final long serialVersionUID = 5591553064475698948L;
     private Integer id;
     private String name;
     private String upc;
+    private Integer categoryId;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -60,6 +61,22 @@ public class PurchaseItemProduct
     @JsonSetter("upc")
     public void setUpc (String value) { 
         this.upc = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("category_id")
+    public Integer getCategoryId ( ) { 
+        return this.categoryId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("category_id")
+    public void setCategoryId (Integer value) { 
+        this.categoryId = value;
     }
  
 }

@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UploadBarcodeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5722947657055464996L;
+    private static final long serialVersionUID = 4724626722573850123L;
     private String barCode;
     private String barCodeType;
     private ProductData apiProduct;
