@@ -261,7 +261,7 @@ public class Main {
 
 		List<ProductData> upcProduct = productsController.productsSearchProducts(null, "014100044208", 1, 25, null, true).getResult();
 		if (upcProduct.size() == 0
-				|| !upcProduct.get(0).getName().equals("Pepperidge Farm Classic BBQ Cracker Chips, 6 Oz")) {
+				|| !upcProduct.get(0).getName().equals("Pepperidge Farm Classic Bbq Cracker Chips, 6 Oz")) {
 			throw new APITestException("Error: get upc products");
 		}
 
@@ -283,8 +283,8 @@ public class Main {
 			throw new APITestException("Error: get full product");
 		}
 
-		List<PriceData> productPrices = productsController.productsGetProductPrices("314878, 314328").getResult();
-		if (productPrices.size() == 0 || !productPrices.get(0).getPrices().get(0).getStoreId().equals(2)) {
+		List<PriceData> productPrices = productsController.productsGetProductPrices("149109, 113427").getResult();
+		if (productPrices.size() == 0 || !productPrices.get(0).getPrices().get(0).getStoreId().equals(4)) {
 			throw new APITestException("Error: get full product");
 		}
 	}
