@@ -29,6 +29,7 @@ public class Main {
 			ProductsControllerTest(productsController);
 
 			TestUserPurchase(productsController, clientId, clientSecret, superMarketId, username, password);
+			System.out.println("All tests passed");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (APIException e) {
@@ -97,7 +98,7 @@ public class Main {
             throw new APITestException("Error: get user products");
         }
 
-        List<UserPurchase> userPurchases = purchasesController.userPurchasesGetAllUserPurchases(userId, 1, 15, true).getResult();
+        List<UserPurchase> userPurchases = purchasesController.userPurchasesGetAllUserPurchases(userId, 1, 15, null, null, null, null, true).getResult();
         if (userPurchases.size() == 0)
         {
             throw new APITestException("Error: get all user purchases");
@@ -128,7 +129,7 @@ public class Main {
 			UserStoresController storesController, String userIdentifier,
 			int storeId) throws IOException, APIException, InterruptedException {
 		// try to see if the users credentials are valid
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 120; i++) {
 			GetSingleStoresWrapper connectedStore = storesController.userStoresGetSingleStore(
 					userIdentifier, storeId);
 

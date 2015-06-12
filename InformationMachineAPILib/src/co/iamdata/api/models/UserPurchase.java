@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UserPurchase 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4970882999172246808L;
+    private static final long serialVersionUID = 5704073046329536231L;
     private UserStore userStore;
     private List<PurchaseItemData> purchaseItems;
     private Integer id;
@@ -20,6 +20,8 @@ public class UserPurchase
     private Double totalWithoutTax;
     private Double tax;
     private String orderNumber;
+    private String receiptId;
+    private String receiptImageUrl;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -146,6 +148,38 @@ public class UserPurchase
     @JsonSetter("order_number")
     public void setOrderNumber (String value) { 
         this.orderNumber = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("receipt_id")
+    public String getReceiptId ( ) { 
+        return this.receiptId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("receipt_id")
+    public void setReceiptId (String value) { 
+        this.receiptId = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("receipt_image_url")
+    public String getReceiptImageUrl ( ) { 
+        return this.receiptImageUrl;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("receipt_image_url")
+    public void setReceiptImageUrl (String value) { 
+        this.receiptImageUrl = value;
     }
  
 }

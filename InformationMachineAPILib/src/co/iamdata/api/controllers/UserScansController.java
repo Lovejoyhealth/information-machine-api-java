@@ -60,14 +60,14 @@ public class UserScansController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5747956434038750712L;
+            private static final long serialVersionUID = 4912856440813074823L;
             {
                     put( "user_id", userId );
             }});
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5118964847520456669L;
+            private static final long serialVersionUID = 5749951678667400238L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -78,7 +78,7 @@ public class UserScansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5225779011099427641L;
+            private static final long serialVersionUID = 4942060328738191894L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -114,7 +114,7 @@ public class UserScansController extends BaseController {
     }
         
     /**
-     * Upload a receipt with unique ID (“receipt_id”) and associate it to a specified user using “user_id” parameter. Note: Uploaded receipt image should be Base 64 encoded. For testing purposes you can find our Base 64 encoded logo here: http://api.iamdata.co/images/base64/encoded_logo.txt
+     * Upload a receipt with unique ID ("receipt_id") and associate it to a specified user using "user_id" parameter. Note: Uploaded receipt image should be Base 64 encoded. For testing purposes you can find our Base 64 encoded logo here: http://api.iamdata.co/images/base64/encoded_logo.txt
      * @param    payload    Required parameter: TODO: type description here
      * @param    userId    Required parameter: TODO: type description here
 	 * @return	Returns the UploadReceiptWrapper response from the API call*/
@@ -131,14 +131,14 @@ public class UserScansController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4728267736506915653L;
+            private static final long serialVersionUID = 5101465269245937192L;
             {
                     put( "user_id", userId );
             }});
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4643993049709026268L;
+            private static final long serialVersionUID = 5493231940040058806L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -149,7 +149,7 @@ public class UserScansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4731667572586046560L;
+            private static final long serialVersionUID = 5494880193004250029L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );

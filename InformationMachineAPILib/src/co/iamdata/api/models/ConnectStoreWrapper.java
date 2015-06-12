@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ConnectStoreWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4638812008952331359L;
+    private static final long serialVersionUID = 4627388807870655493L;
     private ConnectUserStoreResponse result;
     private MetaBase meta;
     /** GETTER

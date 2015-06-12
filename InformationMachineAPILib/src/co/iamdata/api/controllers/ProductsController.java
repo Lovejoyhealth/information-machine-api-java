@@ -67,7 +67,7 @@ public class ProductsController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5432686051497096869L;
+            private static final long serialVersionUID = 5646964420235008540L;
             {
                     put( "name", name );
                     put( "product_identifier", productIdentifier );
@@ -84,7 +84,7 @@ public class ProductsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4643788636472792396L;
+            private static final long serialVersionUID = 5452408908238027501L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -133,14 +133,14 @@ public class ProductsController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5221512926562170446L;
+            private static final long serialVersionUID = 4946821223861645130L;
             {
                     put( "product_id", productId );
             }});
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5459039994131317037L;
+            private static final long serialVersionUID = 4935515685762653578L;
             {
                     put( "full_resp", fullResp );
                     put( "client_id", clientId );
@@ -152,7 +152,7 @@ public class ProductsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5674525511516168095L;
+            private static final long serialVersionUID = 5329754701795782963L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -203,14 +203,14 @@ public class ProductsController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5556727912109612753L;
+            private static final long serialVersionUID = 5669981411206959279L;
             {
                     put( "product_id", productId );
             }});
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4853388089296116751L;
+            private static final long serialVersionUID = 4934478815166401625L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
@@ -223,7 +223,7 @@ public class ProductsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4879261126080826811L;
+            private static final long serialVersionUID = 4624293444515255546L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -255,7 +255,7 @@ public class ProductsController extends BaseController {
     }
         
     /**
-     * Get prices (from available stores) for specified product IDs. Note: It is possible to query 20 product IDs per each request. Please separate IDs with commas (e.g.: “325365, 89300”).
+     * Get prices (from available stores) for specified product IDs. Note: It is possible to query 20 product IDs per each request. Please separate IDs with commas (e.g.: "325365, 89300").
      * @param    productIds    Required parameter: TODO: type description here
 	 * @return	Returns the GetProductPricesWrapper response from the API call*/
     public GetProductPricesWrapper productsGetProductPrices(
@@ -270,7 +270,7 @@ public class ProductsController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4744893919218179000L;
+            private static final long serialVersionUID = 5174023307289546049L;
             {
                     put( "product_ids", productIds );
                     put( "client_id", clientId );
@@ -282,7 +282,7 @@ public class ProductsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5353648482658274336L;
+            private static final long serialVersionUID = 4827287857769460347L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -314,7 +314,7 @@ public class ProductsController extends BaseController {
     }
         
     /**
-     * Get product alternatives for a specified alternative type (e.g.: “type_id: 7” will display alternatives of the “general” type) for a list of products specified by product IDs. Note: See “Lookup” section, “product_alternative_type” for list of all possible alternative types. List of product ids must not contain more than 20 ids or else Bad Request will be returned.
+     * Get product alternatives for a specified alternative type (e.g.: "type_id: 7" will display alternatives of the "general" type) for a list of products specified by product IDs. Note: See "Lookup" section, "product_alternative_type" for list of all possible alternative types. List of product ids must not contain more than 20 ids or else Bad Request will be returned.
      * @param    productIds    Required parameter: TODO: type description here
      * @param    typeId    Optional parameter: TODO: type description here
 	 * @return	Returns the GetProductsAlternativesWrapper response from the API call*/
@@ -331,7 +331,7 @@ public class ProductsController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5706853008066068797L;
+            private static final long serialVersionUID = 5056053802031123233L;
             {
                     put( "product_ids", productIds );
                     put( "type_id", typeId );
@@ -344,7 +344,7 @@ public class ProductsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5178726550605620998L;
+            private static final long serialVersionUID = 4838249276542119370L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -379,7 +379,7 @@ public class ProductsController extends BaseController {
     }
         
     /**
-     * Get full history of products purchased by a specified user at connected stores, must define “user_id".
+     * Get full history of products purchased by a specified user at connected stores, must define "user_id".
      * @param    userId    Required parameter: TODO: type description here
      * @param    page    Optional parameter: TODO: type description here
      * @param    perPage    Optional parameter: default:10, max:50
@@ -402,14 +402,14 @@ public class ProductsController extends BaseController {
 
         //process optional query parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5060998682144394980L;
+            private static final long serialVersionUID = 5522503178913983745L;
             {
                     put( "user_id", userId );
             }});
 
         //process optional query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5449686862367380272L;
+            private static final long serialVersionUID = 5072843051252908327L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
@@ -424,7 +424,7 @@ public class ProductsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4809243031483818505L;
+            private static final long serialVersionUID = 4702242675545100300L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
