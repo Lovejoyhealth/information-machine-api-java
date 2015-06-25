@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class MetaBase 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4879063762556315271L;
+    private static final long serialVersionUID = 5105688322252146377L;
     private Integer maxNumberOfRequestsPerMinute;
     private Integer remainingNumberOfRequest;
     private Double timeInEpochSecondTillReset;

@@ -58,16 +58,16 @@ public class UserScansController extends BaseController {
         StringBuilder queryBuilder = new StringBuilder(baseUri);
         queryBuilder.append("/v1/users/{user_id}/barcode");
 
-        //process optional query parameters
+        //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4912856440813074823L;
+            private static final long serialVersionUID = 5013439852522682169L;
             {
                     put( "user_id", userId );
             }});
 
-        //process optional query parameters
+        //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5749951678667400238L;
+            private static final long serialVersionUID = 5222803577684928304L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -78,7 +78,7 @@ public class UserScansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4942060328738191894L;
+            private static final long serialVersionUID = 4718952390450294946L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -129,16 +129,16 @@ public class UserScansController extends BaseController {
         StringBuilder queryBuilder = new StringBuilder(baseUri);
         queryBuilder.append("/v1/users/{user_id}/receipt");
 
-        //process optional query parameters
+        //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5101465269245937192L;
+            private static final long serialVersionUID = 5408340883485645928L;
             {
                     put( "user_id", userId );
             }});
 
-        //process optional query parameters
+        //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5493231940040058806L;
+            private static final long serialVersionUID = 4975905226558991556L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -149,7 +149,7 @@ public class UserScansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5494880193004250029L;
+            private static final long serialVersionUID = 5061229978758358183L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );

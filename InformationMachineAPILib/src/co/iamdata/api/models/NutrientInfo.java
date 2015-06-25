@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class NutrientInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4613784014013324225L;
+    private static final long serialVersionUID = 4752797284209803523L;
     private Double recommendedDailyValue;
     private String preferredUnitOfMeasurement;
     private String unitOfMeasurement;

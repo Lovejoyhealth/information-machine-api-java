@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetTagsWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5434670819957084099L;
+    private static final long serialVersionUID = 5688930217688902209L;
     private List<TagInfo> result;
     private MetaBase meta;
     /** GETTER

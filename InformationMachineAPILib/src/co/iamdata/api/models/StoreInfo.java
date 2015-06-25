@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class StoreInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4684769132054756140L;
+    private static final long serialVersionUID = 5545970444321579314L;
     private Integer id;
     private String name;
     private Boolean restaurant;

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PriceData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4939561422269907915L;
+    private static final long serialVersionUID = 5308462916810486218L;
     private List<PriceInfo> prices;
     private Integer productId;
     /** GETTER

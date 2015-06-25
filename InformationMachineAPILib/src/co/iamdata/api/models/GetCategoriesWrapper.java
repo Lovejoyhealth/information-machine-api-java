@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetCategoriesWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5242066356339827080L;
+    private static final long serialVersionUID = 4972589644958778423L;
     private List<CategoryInfo> result;
     private MetaBase meta;
     /** GETTER

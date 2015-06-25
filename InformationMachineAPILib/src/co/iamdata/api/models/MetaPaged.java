@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class MetaPaged 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4662668031598542840L;
+    private static final long serialVersionUID = 4736422506605256724L;
     private Integer page;
     private Integer perPage;
     private Integer totalCount;

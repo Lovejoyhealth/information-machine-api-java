@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class RegisterUserResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5063923118946732111L;
+    private static final long serialVersionUID = 5579776517375735209L;
     private String email;
     private String zip;
     private String userId;
