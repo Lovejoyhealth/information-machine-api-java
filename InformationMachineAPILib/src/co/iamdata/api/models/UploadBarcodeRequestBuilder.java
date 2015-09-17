@@ -5,11 +5,13 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class UploadBarcodeRequestBuilder {
     //the instance to build
     private UploadBarcodeRequest uploadBarcodeRequest;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public UploadBarcodeRequestBuilder() {
@@ -25,11 +27,10 @@ public class UploadBarcodeRequestBuilder {
         uploadBarcodeRequest.setBarCodeType(barCodeType);
         return this;
     }
-
     /**
      * Build the instance with the given values
      */
-	public UploadBarcodeRequest build() {
-		return uploadBarcodeRequest;
-	}
+    public UploadBarcodeRequest build() {
+        return uploadBarcodeRequest;
+    }
 }

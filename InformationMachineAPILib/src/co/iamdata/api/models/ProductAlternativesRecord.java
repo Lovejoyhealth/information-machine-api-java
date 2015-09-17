@@ -5,31 +5,15 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ProductAlternativesRecord 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5306491475221994101L;
-    private Integer productId;
+    private static final long serialVersionUID = 5203929352672892927L;
     private List<ProductData> productAlternatives;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("productId")
-    public Integer getProductId ( ) { 
-        return this.productId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("productId")
-    public void setProductId (Integer value) { 
-        this.productId = value;
-    }
- 
+    private Integer productId;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -44,6 +28,22 @@ public class ProductAlternativesRecord
     @JsonSetter("productAlternatives")
     public void setProductAlternatives (List<ProductData> value) { 
         this.productAlternatives = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("productId")
+    public Integer getProductId ( ) { 
+        return this.productId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("productId")
+    public void setProductId (Integer value) { 
+        this.productId = value;
     }
  
 }

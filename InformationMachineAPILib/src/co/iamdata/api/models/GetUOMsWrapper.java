@@ -5,31 +5,15 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetUOMsWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5451453006698317844L;
-    private List<UOMInfo> result;
+    private static final long serialVersionUID = 5394937874420581804L;
     private MetaBase meta;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("result")
-    public List<UOMInfo> getResult ( ) { 
-        return this.result;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("result")
-    public void setResult (List<UOMInfo> value) { 
-        this.result = value;
-    }
- 
+    private List<UOMInfo> result;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -44,6 +28,22 @@ public class GetUOMsWrapper
     @JsonSetter("meta")
     public void setMeta (MetaBase value) { 
         this.meta = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("result")
+    public List<UOMInfo> getResult ( ) { 
+        return this.result;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("result")
+    public void setResult (List<UOMInfo> value) { 
+        this.result = value;
     }
  
 }

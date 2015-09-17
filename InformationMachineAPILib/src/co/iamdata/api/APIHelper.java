@@ -5,25 +5,30 @@
  */
 package co.iamdata.api;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.io.InvalidObjectException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.net.URLEncoder;
+
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.mashape.unirest.http.Unirest;
-
 public class APIHelper {
     /* used for deserialization of json data */
     public static ObjectMapper mapper = new ObjectMapper()
     {
-		private static final long serialVersionUID = -174113593500315394L;
+        private static final long serialVersionUID = -174113593500315394L;
         {
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         }
@@ -70,13 +75,15 @@ public class APIHelper {
     /**
      * JSON Deserialization of the given json string.
      * @param	json	The json string to deserialize
-     * @return	The deserialized json tree */
-    public static JsonNode jsonDeserialize(String json)
+     * @return	The deserialized json as a Map */
+    public static LinkedHashMap<String, Object> jsonDeserialize(String json)
             throws IOException {
         if (isNullOrWhiteSpace(json))
             return null;
 
-        return mapper.readTree(json);
+        TypeReference<LinkedHashMap<String,Object>> typeRef 
+            = new TypeReference<LinkedHashMap<String,Object>>() {};
+        return jsonDeserialize(json, typeRef);
     }
     
     /**
@@ -99,9 +106,9 @@ public class APIHelper {
              if (null == pair.getValue())
                  replaceValue = "";
              else if (pair.getValue() instanceof Collection<?>)
-                 replaceValue = flattenCollection((Collection<?>) pair.getValue(), "%s%s", '/');
+                 replaceValue = flattenCollection("", (Collection<?>) pair.getValue(), "%s%s%s", '/');
              else
-                 replaceValue = pair.getValue().toString();
+                 replaceValue = tryUrlEncode(pair.getValue().toString());
 
              //find the template parameter and replace it with its value
              replaceAll(queryBuilder, "{" + pair.getKey() + "}", replaceValue);
@@ -115,37 +122,17 @@ public class APIHelper {
     public static void appendUrlWithQueryParameters(StringBuilder queryBuilder, Map<String, Object> parameters) {
         //perform parameter validation
         if (null == queryBuilder)
-            throw new IllegalArgumentException("Given value for parameter \"queryBuilder\" is invalid." );
+            throw new IllegalArgumentException("Given value for parameter \"queryBuilder\" is invalid.");
 
         if (null == parameters)
             return;
 
         //does the query string already has parameters
-        boolean hasParams = (queryBuilder.indexOf("?") > 0);
+        boolean hasParams = (queryBuilder.indexOf("?") > 0) || (queryBuilder.indexOf("http") != 0);
+        if (!hasParams)
+            queryBuilder.append('?');
 
-        //iterate and append parameters
-       for (Map.Entry<String, Object> pair : parameters.entrySet()) {
-            //ignore null values
-            if (null == pair.getValue())
-                continue;
-		
-            //if already has parameters, use the &amp; to append new parameters
-            queryBuilder.append((hasParams) ? '&' : '?');
-
-            //indicate that now the query has some params
-            hasParams = true;
-
-            String paramKeyValPair;
-
-            //load element value as string
-            if (pair.getValue() instanceof Collection<?>)
-                paramKeyValPair = flattenCollection((Collection<?>) pair.getValue(), String.format("%s[]=%%s%%s", pair.getKey()), '&');
-            else
-                paramKeyValPair = String.format("%s=%s", pair.getKey(), pair.getValue().toString());
-
-            //append keyval pair for current parameter
-            queryBuilder.append(paramKeyValPair);
-        }
+        encodeObjectAsQueryString("", parameters, queryBuilder);
     }
 
     /**
@@ -182,7 +169,16 @@ public class APIHelper {
             index = stringBuilder.indexOf(toReplace, index);
         }
     }
-    
+
+    /**
+     * Removes null values from the given map
+     */
+    public static void removeNullValues(Map<String, ?> map) {
+        if(map == null)
+            return;
+        map.values().removeAll(Collections.singleton(null));
+    }
+
     /**
      * Validates and processes the given Url
      * @param    url The given Url to process
@@ -207,12 +203,60 @@ public class APIHelper {
     }
 
     /**
+     * Prepares Array style form fields from a given array of values
+     * @param 	value	Value for the form fields
+     * @return	Dictionary of form fields created from array elements */
+    public static Map<String, Object> prepareFormFields(Object value) {
+        Map<String, Object> formFields = new LinkedHashMap<String, Object>();
+        if(value != null) {
+            try {
+                objectToMap("", value, formFields, new HashSet<Integer>());
+            } catch (Exception ex) {
+            }
+        }
+        return formFields;
+    }
+
+    /**
+     * Encodes a given object to url encoded string
+     * @param name
+     * @param obj
+     * @param objBuilder
+     */
+    private static void encodeObjectAsQueryString(String name, Object obj, StringBuilder objBuilder) {
+        try {
+            if(obj == null)
+                return;
+
+            Map<String, Object> objectMap = new LinkedHashMap<String, Object>();
+            objectToMap(name, obj, objectMap, new HashSet<Integer>());
+
+            for (Map.Entry<String, Object> pair : objectMap.entrySet()) {
+                String paramKeyValPair;
+
+                //ignore nulls
+                Object value = pair.getValue();
+                if(value == null)
+                    continue;
+
+                //load element value as string
+                paramKeyValPair = String.format("%s=%s&", pair.getKey(), tryUrlEncode(value.toString()));
+                objBuilder.append(paramKeyValPair);
+            }
+            
+            if ((objBuilder.length() > 1) && (objBuilder.charAt(objBuilder.length() - 1) == '&'))
+            	objBuilder.deleteCharAt(objBuilder.length()-1);
+        }catch (Exception ex){
+        }
+    }
+
+    /**
      * Used for flattening a collection of objects into a string
      * @param   array	Array of elements to flatten
      * @param   fmt Format string to use for array flattening
      * @param	separator	Separator to use for string concat
      * @return	Representative string made up of array elements */
-    private static String flattenCollection(Collection<?> array, String fmt, char separator) {
+    private static String flattenCollection(String elemName, Collection<?> array, String fmt, char separator) {
         StringBuilder builder = new StringBuilder();
 
         //append all elements in the array into a string
@@ -220,12 +264,13 @@ public class APIHelper {
             String elemValue = null;
 
             //replace null values with empty string to maintain index order
-            if (null == element)
+            if (null == element) {
                 elemValue = "";
-            else
-                elemValue = element.toString();
-					
-            builder.append(String.format(fmt, elemValue, separator));
+                builder.append(String.format(fmt, elemName, elemValue, separator));
+            } else {
+                elemValue = tryUrlEncode(element.toString());
+                builder.append(String.format(fmt, elemName, elemValue, separator));
+            }
         }
 
         //remove the last separator, if appended
@@ -236,29 +281,152 @@ public class APIHelper {
     }
 
     /**
-     * Prepares Array style form fields from a given array of values        
-     * @param	name	Name of the form field
-     * @param 	values	Values for the array form field
-     * @return	Dictionary of form fields created from array elements */
-    public static Map<String, Object> prepareFormFieldsFromArray(String name, Collection<?> values) {
-        Map<String, Object> formFields = new LinkedHashMap<String, Object>();
+     * Tries Url encode using UTF-8
+     * @param value The value to url encode
+     * @return
+     */
+    private static String tryUrlEncode(String value) {
+        try {
+            return URLEncoder.encode(value, "UTF-8");
+        }catch (Exception ex) {
+            return value;
+        }
+    }
 
-        //counter for array index
-        int index = 0;
+    /**
+     * Converts a given object to a form encoded map
+     * @param objName Name of the object
+     * @param obj The object to convert into a map
+     * @param objectMap The object map to populate
+     * @param processed List of objects hashCodes that are already parsed
+     * @throws InvalidObjectException
+     */
+    private static void objectToMap(
+            String objName, Object obj, Map<String,Object> objectMap, HashSet<Integer> processed)
+    throws InvalidObjectException {
+        //null values need not to be processed
+        if(obj == null)
+            return;
 
-        //iterate over all elements and create form array fields
-        for (Object element : values) {
-            String elemValue = null;
-
-            //replace null values with empty string to maintain index order
-            if (null == element)
-                elemValue = "";
-            else
-                elemValue = element.toString();
-					
-            formFields.put(String.format("%s[%s]", name, index++), elemValue);
+        //wrapper types are autoboxed, so reference checking is not needed
+        if(!isWrapperType(obj.getClass())) {
+            //avoid infinite recursion
+            if(processed.contains(obj.hashCode()))
+                return;
+            processed.add(obj.hashCode());
         }
 
-        return formFields;
+        //process arrays
+        if(obj instanceof Collection<?>) {
+            //process array
+            if((objName == null) ||(objName.isEmpty()))
+                throw new InvalidObjectException("Object name cannot be empty");
+
+            Collection<?> array = (Collection<?>) obj;
+            //append all elements in the array into a string
+            int index = 0;
+            for (Object element : array) {
+                //load key value pair
+                String key = String.format("%s[%d]", objName, index++);
+                loadKeyValuePairForEncoding(key, element, objectMap, processed);
+            }
+        }
+        else if(obj instanceof Map) {
+            //process map
+            Map<?, ?> map = (Map<?, ?>) obj;
+            //append all elements in the array into a string            
+            for (Map.Entry<?, ?> pair : map.entrySet()) {
+                String attribName = pair.getKey().toString();
+                String key = attribName;
+                if((objName != null) && (!objName.isEmpty())) {
+                    key = String.format("%s[%s]", objName, attribName);
+                }
+                loadKeyValuePairForEncoding(key, pair.getValue(), objectMap, processed);
+            }
+        }
+        else {
+            //process objects
+            // invoke getter methods
+            Method[] methods = obj.getClass().getMethods();
+            for (Method method : methods) {
+                //is a getter?
+                if ((method.getParameterTypes().length != 0)
+                        || (!method.getName().startsWith("get")))
+                    continue;
+
+                //get json attribute name
+                Annotation getterAnnotation = method.getAnnotation(JsonGetter.class);
+                if (getterAnnotation == null)
+                    continue;
+
+                //load key name
+                String attribName = ((JsonGetter) getterAnnotation).value();
+                String key = attribName;
+                if ((objName != null) && (!objName.isEmpty())) {
+                    key = String.format("%s[%s]", objName, attribName);
+                }
+
+                try {
+                    //load key value pair
+                    Object value = method.invoke(obj);
+                    loadKeyValuePairForEncoding(key, value, objectMap, processed);
+                } catch (Exception ex) {
+                }
+            }
+
+            // load fields
+            Field[] fields = obj.getClass().getFields();
+            for (Field field : fields) {
+                //load key name
+                String attribName = field.getName();
+                String key = attribName;
+                if ((objName != null) && (!objName.isEmpty())) {
+                    key = String.format("%s[%s]", objName, attribName);
+                }
+
+                try {
+                    //load key value pair
+                    Object value = field.get(obj);
+                    loadKeyValuePairForEncoding(key, value, objectMap, processed);
+                } catch (Exception ex) {
+                }
+            }
+        }
+    }
+
+    /**
+     * While processing objects to map, decides whether to perform recursion or load value
+     * @param key The key to used for creating key value pair
+     * @param value The value to process against the given key
+     * @param objectMap The object map to process with key value pair
+     * @param processed List of processed objects hashCodes
+     * @throws InvalidObjectException
+     */
+    private static void loadKeyValuePairForEncoding(
+            String key, Object value, Map<String, Object> objectMap, HashSet<Integer> processed)
+    throws InvalidObjectException {
+        if(value == null)
+            return;
+        if (isWrapperType(value.getClass()))
+            objectMap.put(key, value);
+        else
+            objectToMap(key, value, objectMap, processed);
+    }
+
+    /**
+     * List of classes that are wrapped directly. This information is need when
+     * traversing object trees for reference matching
+     */
+    private static final Set<Class> WRAPPER_TYPES = new HashSet(Arrays.asList(
+            Boolean.class, Character.class, Byte.class, Short.class, String.class,
+            Integer.class, Long.class, Float.class, Double.class, Void.class, File.class));
+
+    /**
+     * Checks if the given class can be wrapped directly
+     * @param clazz The given class
+     * @return true if the given class is an autoboxed class e.g., Integer
+     */
+    private static boolean isWrapperType(Class clazz) {
+        return WRAPPER_TYPES.contains(clazz) || clazz.isPrimitive();
     }
 }

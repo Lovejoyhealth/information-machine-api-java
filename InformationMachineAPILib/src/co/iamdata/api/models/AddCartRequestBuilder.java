@@ -5,11 +5,13 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class AddCartRequestBuilder {
     //the instance to build
     private AddCartRequest addCartRequest;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public AddCartRequestBuilder() {
@@ -25,11 +27,10 @@ public class AddCartRequestBuilder {
         addCartRequest.setDescription(description);
         return this;
     }
-
     /**
      * Build the instance with the given values
      */
-	public AddCartRequest build() {
-		return addCartRequest;
-	}
+    public AddCartRequest build() {
+        return addCartRequest;
+    }
 }

@@ -5,20 +5,17 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class ConnectStoreWrapperBuilder {
     //the instance to build
     private ConnectStoreWrapper connectStoreWrapper;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public ConnectStoreWrapperBuilder() {
         connectStoreWrapper = new ConnectStoreWrapper();
-    }
-
-    public ConnectStoreWrapperBuilder result(ConnectUserStoreResponse result) {
-        connectStoreWrapper.setResult(result);
-        return this;
     }
 
     public ConnectStoreWrapperBuilder meta(MetaBase meta) {
@@ -26,10 +23,14 @@ public class ConnectStoreWrapperBuilder {
         return this;
     }
 
+    public ConnectStoreWrapperBuilder result(ConnectUserStoreResponse result) {
+        connectStoreWrapper.setResult(result);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
-	public ConnectStoreWrapper build() {
-		return connectStoreWrapper;
-	}
+    public ConnectStoreWrapper build() {
+        return connectStoreWrapper;
+    }
 }

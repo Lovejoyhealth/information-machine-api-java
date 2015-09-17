@@ -5,20 +5,17 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class CreateUserWrapperBuilder {
     //the instance to build
     private CreateUserWrapper createUserWrapper;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public CreateUserWrapperBuilder() {
         createUserWrapper = new CreateUserWrapper();
-    }
-
-    public CreateUserWrapperBuilder result(RegisterUserResponse result) {
-        createUserWrapper.setResult(result);
-        return this;
     }
 
     public CreateUserWrapperBuilder meta(MetaBase meta) {
@@ -26,10 +23,14 @@ public class CreateUserWrapperBuilder {
         return this;
     }
 
+    public CreateUserWrapperBuilder result(RegisterUserResponse result) {
+        createUserWrapper.setResult(result);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
-	public CreateUserWrapper build() {
-		return createUserWrapper;
-	}
+    public CreateUserWrapper build() {
+        return createUserWrapper;
+    }
 }

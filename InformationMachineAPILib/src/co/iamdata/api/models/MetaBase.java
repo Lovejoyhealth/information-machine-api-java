@@ -5,29 +5,30 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class MetaBase 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5105688322252146377L;
-    private Integer maxNumberOfRequestsPerMinute;
+    private static final long serialVersionUID = 5224761057893149723L;
+    private Integer maxNumberOfRequestsPerDay;
     private Integer remainingNumberOfRequest;
     private Double timeInEpochSecondTillReset;
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("max_number_of_requests_per_minute")
-    public Integer getMaxNumberOfRequestsPerMinute ( ) { 
-        return this.maxNumberOfRequestsPerMinute;
+    @JsonGetter("max_number_of_requests_per_day")
+    public Integer getMaxNumberOfRequestsPerDay ( ) { 
+        return this.maxNumberOfRequestsPerDay;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("max_number_of_requests_per_minute")
-    public void setMaxNumberOfRequestsPerMinute (Integer value) { 
-        this.maxNumberOfRequestsPerMinute = value;
+    @JsonSetter("max_number_of_requests_per_day")
+    public void setMaxNumberOfRequestsPerDay (Integer value) { 
+        this.maxNumberOfRequestsPerDay = value;
     }
  
     /** GETTER

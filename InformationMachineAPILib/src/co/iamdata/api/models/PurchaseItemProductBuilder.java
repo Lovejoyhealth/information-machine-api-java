@@ -5,15 +5,22 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class PurchaseItemProductBuilder {
     //the instance to build
     private PurchaseItemProduct purchaseItemProduct;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public PurchaseItemProductBuilder() {
         purchaseItemProduct = new PurchaseItemProduct();
+    }
+
+    public PurchaseItemProductBuilder categoryId(Integer categoryId) {
+        purchaseItemProduct.setCategoryId(categoryId);
+        return this;
     }
 
     public PurchaseItemProductBuilder id(Integer id) {
@@ -30,16 +37,10 @@ public class PurchaseItemProductBuilder {
         purchaseItemProduct.setUpc(upc);
         return this;
     }
-
-    public PurchaseItemProductBuilder categoryId(Integer categoryId) {
-        purchaseItemProduct.setCategoryId(categoryId);
-        return this;
-    }
-
     /**
      * Build the instance with the given values
      */
-	public PurchaseItemProduct build() {
-		return purchaseItemProduct;
-	}
+    public PurchaseItemProduct build() {
+        return purchaseItemProduct;
+    }
 }

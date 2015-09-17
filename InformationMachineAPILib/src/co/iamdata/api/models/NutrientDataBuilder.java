@@ -5,11 +5,13 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class NutrientDataBuilder {
     //the instance to build
     private NutrientData nutrientData;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public NutrientDataBuilder() {
@@ -21,8 +23,8 @@ public class NutrientDataBuilder {
         return this;
     }
 
-    public NutrientDataBuilder value(Double value) {
-        nutrientData.setValue(value);
+    public NutrientDataBuilder id(Integer id) {
+        nutrientData.setId(id);
         return this;
     }
 
@@ -31,15 +33,14 @@ public class NutrientDataBuilder {
         return this;
     }
 
-    public NutrientDataBuilder id(Integer id) {
-        nutrientData.setId(id);
+    public NutrientDataBuilder value(Double value) {
+        nutrientData.setValue(value);
         return this;
     }
-
     /**
      * Build the instance with the given values
      */
-	public NutrientData build() {
-		return nutrientData;
-	}
+    public NutrientData build() {
+        return nutrientData;
+    }
 }

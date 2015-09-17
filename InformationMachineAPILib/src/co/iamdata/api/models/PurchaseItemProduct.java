@@ -5,16 +5,33 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PurchaseItemProduct 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5300656448879304142L;
+    private static final long serialVersionUID = 5095207896981196832L;
+    private Integer categoryId;
     private Integer id;
     private String name;
     private String upc;
-    private Integer categoryId;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("category_id")
+    public Integer getCategoryId ( ) { 
+        return this.categoryId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("category_id")
+    public void setCategoryId (Integer value) { 
+        this.categoryId = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -61,22 +78,6 @@ public class PurchaseItemProduct
     @JsonSetter("upc")
     public void setUpc (String value) { 
         this.upc = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("category_id")
-    public Integer getCategoryId ( ) { 
-        return this.categoryId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("category_id")
-    public void setCategoryId (Integer value) { 
-        this.categoryId = value;
     }
  
 }

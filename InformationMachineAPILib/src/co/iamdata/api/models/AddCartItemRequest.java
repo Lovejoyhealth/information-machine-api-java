@@ -5,30 +5,15 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class AddCartItemRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5395606232767318287L;
-    private String upc;
+    private static final long serialVersionUID = 5271400504701888916L;
     private int quantity;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("upc")
-    public String getUpc ( ) { 
-        return this.upc;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("upc")
-    public void setUpc (String value) { 
-        this.upc = value;
-    }
- 
+    private String upc;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -43,6 +28,22 @@ public class AddCartItemRequest
     @JsonSetter("quantity")
     public void setQuantity (int value) { 
         this.quantity = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("upc")
+    public String getUpc ( ) { 
+        return this.upc;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("upc")
+    public void setUpc (String value) { 
+        this.upc = value;
     }
  
 }

@@ -5,16 +5,33 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CategoryInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5374428163641923253L;
+    private static final long serialVersionUID = 4743062041590202053L;
+    private Boolean grocery;
     private Integer id;
     private String name;
     private Integer parentId;
-    private Boolean grocery;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("grocery")
+    public Boolean getGrocery ( ) { 
+        return this.grocery;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("grocery")
+    public void setGrocery (Boolean value) { 
+        this.grocery = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -61,22 +78,6 @@ public class CategoryInfo
     @JsonSetter("parent_id")
     public void setParentId (Integer value) { 
         this.parentId = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("grocery")
-    public Boolean getGrocery ( ) { 
-        return this.grocery;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("grocery")
-    public void setGrocery (Boolean value) { 
-        this.grocery = value;
     }
  
 }

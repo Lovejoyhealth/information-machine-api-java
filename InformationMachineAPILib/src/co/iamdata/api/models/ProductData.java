@@ -5,100 +5,36 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ProductData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5302438419965386727L;
-    private List<NutrientData> nutrients;
-    private List<String> recipes;
-    private Integer visibilityCount;
-    private Double score;
+    private static final long serialVersionUID = 5681623766795131472L;
     private String amazonLink;
-    private String manufacturer;
+    private String brand;
+    private String category;
+    private Integer categoryId;
+    private String description;
+    private Integer id;
+    private String ingredients;
     private Integer ingredientsCount;
     private String largeImage;
-    private String smallImage;
+    private String manufacturer;
+    private String name;
+    private List<NutrientData> nutrients;
+    private List<String> recipes;
+    private Double score;
+    private String servingSize;
     private Double servingSizeInGrams;
     private String servingSizeUnit;
     private String servingsPerContainer;
-    private String servingSize;
-    private String ingredients;
-    private String weight;
-    private String description;
-    private String brand;
-    private String upc;
+    private String smallImage;
     private List<String> tags;
-    private String category;
-    private Integer categoryId;
-    private String name;
-    private Integer id;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("nutrients")
-    public List<NutrientData> getNutrients ( ) { 
-        return this.nutrients;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("nutrients")
-    public void setNutrients (List<NutrientData> value) { 
-        this.nutrients = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("recipes")
-    public List<String> getRecipes ( ) { 
-        return this.recipes;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("recipes")
-    public void setRecipes (List<String> value) { 
-        this.recipes = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("visibility_count")
-    public Integer getVisibilityCount ( ) { 
-        return this.visibilityCount;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("visibility_count")
-    public void setVisibilityCount (Integer value) { 
-        this.visibilityCount = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("score")
-    public Double getScore ( ) { 
-        return this.score;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("score")
-    public void setScore (Double value) { 
-        this.score = value;
-    }
- 
+    private String upc;
+    private Integer visibilityCount;
+    private String weight;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -118,17 +54,97 @@ public class ProductData
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("manufacturer")
-    public String getManufacturer ( ) { 
-        return this.manufacturer;
+    @JsonGetter("brand")
+    public String getBrand ( ) { 
+        return this.brand;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("manufacturer")
-    public void setManufacturer (String value) { 
-        this.manufacturer = value;
+    @JsonSetter("brand")
+    public void setBrand (String value) { 
+        this.brand = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("category")
+    public String getCategory ( ) { 
+        return this.category;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("category")
+    public void setCategory (String value) { 
+        this.category = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("category_id")
+    public Integer getCategoryId ( ) { 
+        return this.categoryId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("category_id")
+    public void setCategoryId (Integer value) { 
+        this.categoryId = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("description")
+    public String getDescription ( ) { 
+        return this.description;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("description")
+    public void setDescription (String value) { 
+        this.description = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("id")
+    public Integer getId ( ) { 
+        return this.id;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("id")
+    public void setId (Integer value) { 
+        this.id = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("ingredients")
+    public String getIngredients ( ) { 
+        return this.ingredients;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("ingredients")
+    public void setIngredients (String value) { 
+        this.ingredients = value;
     }
  
     /** GETTER
@@ -166,17 +182,97 @@ public class ProductData
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("small_image")
-    public String getSmallImage ( ) { 
-        return this.smallImage;
+    @JsonGetter("manufacturer")
+    public String getManufacturer ( ) { 
+        return this.manufacturer;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("small_image")
-    public void setSmallImage (String value) { 
-        this.smallImage = value;
+    @JsonSetter("manufacturer")
+    public void setManufacturer (String value) { 
+        this.manufacturer = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("name")
+    public String getName ( ) { 
+        return this.name;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("name")
+    public void setName (String value) { 
+        this.name = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("nutrients")
+    public List<NutrientData> getNutrients ( ) { 
+        return this.nutrients;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("nutrients")
+    public void setNutrients (List<NutrientData> value) { 
+        this.nutrients = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("recipes")
+    public List<String> getRecipes ( ) { 
+        return this.recipes;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("recipes")
+    public void setRecipes (List<String> value) { 
+        this.recipes = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("score")
+    public Double getScore ( ) { 
+        return this.score;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("score")
+    public void setScore (Double value) { 
+        this.score = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("serving_size")
+    public String getServingSize ( ) { 
+        return this.servingSize;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("serving_size")
+    public void setServingSize (String value) { 
+        this.servingSize = value;
     }
  
     /** GETTER
@@ -230,97 +326,17 @@ public class ProductData
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("serving_size")
-    public String getServingSize ( ) { 
-        return this.servingSize;
+    @JsonGetter("small_image")
+    public String getSmallImage ( ) { 
+        return this.smallImage;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("serving_size")
-    public void setServingSize (String value) { 
-        this.servingSize = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("ingredients")
-    public String getIngredients ( ) { 
-        return this.ingredients;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("ingredients")
-    public void setIngredients (String value) { 
-        this.ingredients = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("weight")
-    public String getWeight ( ) { 
-        return this.weight;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("weight")
-    public void setWeight (String value) { 
-        this.weight = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("description")
-    public String getDescription ( ) { 
-        return this.description;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("description")
-    public void setDescription (String value) { 
-        this.description = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("brand")
-    public String getBrand ( ) { 
-        return this.brand;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("brand")
-    public void setBrand (String value) { 
-        this.brand = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("upc")
-    public String getUpc ( ) { 
-        return this.upc;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("upc")
-    public void setUpc (String value) { 
-        this.upc = value;
+    @JsonSetter("small_image")
+    public void setSmallImage (String value) { 
+        this.smallImage = value;
     }
  
     /** GETTER
@@ -342,65 +358,49 @@ public class ProductData
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("category")
-    public String getCategory ( ) { 
-        return this.category;
+    @JsonGetter("upc")
+    public String getUpc ( ) { 
+        return this.upc;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("category")
-    public void setCategory (String value) { 
-        this.category = value;
+    @JsonSetter("upc")
+    public void setUpc (String value) { 
+        this.upc = value;
     }
  
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("category_id")
-    public Integer getCategoryId ( ) { 
-        return this.categoryId;
+    @JsonGetter("visibility_count")
+    public Integer getVisibilityCount ( ) { 
+        return this.visibilityCount;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("category_id")
-    public void setCategoryId (Integer value) { 
-        this.categoryId = value;
+    @JsonSetter("visibility_count")
+    public void setVisibilityCount (Integer value) { 
+        this.visibilityCount = value;
     }
  
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("name")
-    public String getName ( ) { 
-        return this.name;
+    @JsonGetter("weight")
+    public String getWeight ( ) { 
+        return this.weight;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("name")
-    public void setName (String value) { 
-        this.name = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("id")
-    public Integer getId ( ) { 
-        return this.id;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("id")
-    public void setId (Integer value) { 
-        this.id = value;
+    @JsonSetter("weight")
+    public void setWeight (String value) { 
+        this.weight = value;
     }
  
 }

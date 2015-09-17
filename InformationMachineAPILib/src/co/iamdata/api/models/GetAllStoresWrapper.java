@@ -5,31 +5,15 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetAllStoresWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5515237691966589403L;
-    private List<UserStore> result;
+    private static final long serialVersionUID = 5675087997045021452L;
     private MetaPaged meta;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("result")
-    public List<UserStore> getResult ( ) { 
-        return this.result;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("result")
-    public void setResult (List<UserStore> value) { 
-        this.result = value;
-    }
- 
+    private List<UserStore> result;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -44,6 +28,22 @@ public class GetAllStoresWrapper
     @JsonSetter("meta")
     public void setMeta (MetaPaged value) { 
         this.meta = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("result")
+    public List<UserStore> getResult ( ) { 
+        return this.result;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("result")
+    public void setResult (List<UserStore> value) { 
+        this.result = value;
     }
  
 }

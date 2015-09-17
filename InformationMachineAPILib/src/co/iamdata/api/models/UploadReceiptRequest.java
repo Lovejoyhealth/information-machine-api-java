@@ -5,30 +5,15 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UploadReceiptRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5004664232277782712L;
-    private String receiptId;
+    private static final long serialVersionUID = 4867744873995257335L;
     private String image;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("receipt_id")
-    public String getReceiptId ( ) { 
-        return this.receiptId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("receipt_id")
-    public void setReceiptId (String value) { 
-        this.receiptId = value;
-    }
- 
+    private String receiptId;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -43,6 +28,22 @@ public class UploadReceiptRequest
     @JsonSetter("image")
     public void setImage (String value) { 
         this.image = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("receipt_id")
+    public String getReceiptId ( ) { 
+        return this.receiptId;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("receipt_id")
+    public void setReceiptId (String value) { 
+        this.receiptId = value;
     }
  
 }

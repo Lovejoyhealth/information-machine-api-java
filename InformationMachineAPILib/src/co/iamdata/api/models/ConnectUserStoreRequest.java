@@ -5,15 +5,32 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ConnectUserStoreRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5176410559187391317L;
+    private static final long serialVersionUID = 5269682062568204048L;
+    private String password;
     private int storeId;
     private String username;
-    private String password;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("password")
+    public String getPassword ( ) { 
+        return this.password;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("password")
+    public void setPassword (String value) { 
+        this.password = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -44,22 +61,6 @@ public class ConnectUserStoreRequest
     @JsonSetter("username")
     public void setUsername (String value) { 
         this.username = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("password")
-    public String getPassword ( ) { 
-        return this.password;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("password")
-    public void setPassword (String value) { 
-        this.password = value;
     }
  
 }

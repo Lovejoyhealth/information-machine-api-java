@@ -5,15 +5,22 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class CategoryInfoBuilder {
     //the instance to build
     private CategoryInfo categoryInfo;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public CategoryInfoBuilder() {
         categoryInfo = new CategoryInfo();
+    }
+
+    public CategoryInfoBuilder grocery(Boolean grocery) {
+        categoryInfo.setGrocery(grocery);
+        return this;
     }
 
     public CategoryInfoBuilder id(Integer id) {
@@ -30,16 +37,10 @@ public class CategoryInfoBuilder {
         categoryInfo.setParentId(parentId);
         return this;
     }
-
-    public CategoryInfoBuilder grocery(Boolean grocery) {
-        categoryInfo.setGrocery(grocery);
-        return this;
-    }
-
     /**
      * Build the instance with the given values
      */
-	public CategoryInfo build() {
-		return categoryInfo;
-	}
+    public CategoryInfo build() {
+        return categoryInfo;
+    }
 }

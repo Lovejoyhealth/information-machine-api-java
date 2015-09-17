@@ -9,6 +9,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.*;
 
 import co.iamdata.api.APIException;
+import co.iamdata.api.http.client.HttpContext;
 import co.iamdata.api.http.request.HttpBodyRequest;
 import co.iamdata.api.http.request.HttpMethod;
 import co.iamdata.api.http.request.HttpRequest;
@@ -108,12 +109,14 @@ public class UnirestClient implements HttpClient {
      * @param   uniException       The reported errors for getting the http response
      */
     protected static void publishResponse (com.mashape.unirest.http.HttpResponse<?> response,
-                                 Object context, APICallBack<HttpResponse> completionBlock, UnirestException uniException)
+                                 HttpRequest request, APICallBack<HttpResponse> completionBlock, UnirestException uniException)
     {
+        HttpResponse httpResponse = UnirestClient.convertResponse(response);
+        HttpContext context = new HttpContext(request, httpResponse);
+
         //if there are no errors, try to convert to our internal format
         if(uniException == null)
-        {
-            HttpResponse httpResponse = UnirestClient.convertResponse(response);
+        {            
             completionBlock.onSuccess(context, httpResponse);
         }
         else

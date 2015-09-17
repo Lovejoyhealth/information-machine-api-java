@@ -5,15 +5,32 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UploadBarcodeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4655748917486294367L;
+    private static final long serialVersionUID = 5495284157705125735L;
+    private ProductData apiProduct;
     private String barCode;
     private String barCodeType;
-    private ProductData apiProduct;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("apiProduct")
+    public ProductData getApiProduct ( ) { 
+        return this.apiProduct;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("apiProduct")
+    public void setApiProduct (ProductData value) { 
+        this.apiProduct = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -44,22 +61,6 @@ public class UploadBarcodeResponse
     @JsonSetter("bar_code_type")
     public void setBarCodeType (String value) { 
         this.barCodeType = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("apiProduct")
-    public ProductData getApiProduct ( ) { 
-        return this.apiProduct;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("apiProduct")
-    public void setApiProduct (ProductData value) { 
-        this.apiProduct = value;
     }
  
 }

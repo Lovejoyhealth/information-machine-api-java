@@ -5,13 +5,13 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PriceData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5308462916810486218L;
+    private static final long serialVersionUID = 4888487115135900458L;
     private List<PriceInfo> prices;
     private Integer productId;
     /** GETTER

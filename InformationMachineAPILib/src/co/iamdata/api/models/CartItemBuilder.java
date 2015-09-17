@@ -5,11 +5,13 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class CartItemBuilder {
     //the instance to build
     private CartItem cartItem;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public CartItemBuilder() {
@@ -21,8 +23,8 @@ public class CartItemBuilder {
         return this;
     }
 
-    public CartItemBuilder upc(String upc) {
-        cartItem.setUpc(upc);
+    public CartItemBuilder createdAt(String createdAt) {
+        cartItem.setCreatedAt(createdAt);
         return this;
     }
 
@@ -31,8 +33,8 @@ public class CartItemBuilder {
         return this;
     }
 
-    public CartItemBuilder createdAt(String createdAt) {
-        cartItem.setCreatedAt(createdAt);
+    public CartItemBuilder upc(String upc) {
+        cartItem.setUpc(upc);
         return this;
     }
 
@@ -40,11 +42,10 @@ public class CartItemBuilder {
         cartItem.setUpdatedAt(updatedAt);
         return this;
     }
-
     /**
      * Build the instance with the given values
      */
-	public CartItem build() {
-		return cartItem;
-	}
+    public CartItem build() {
+        return cartItem;
+    }
 }

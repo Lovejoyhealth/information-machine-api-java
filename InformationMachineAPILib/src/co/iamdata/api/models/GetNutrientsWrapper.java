@@ -5,31 +5,15 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetNutrientsWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5434481218926028130L;
-    private List<NutrientInfo> result;
+    private static final long serialVersionUID = 5396156673797317834L;
     private MetaBase meta;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("result")
-    public List<NutrientInfo> getResult ( ) { 
-        return this.result;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("result")
-    public void setResult (List<NutrientInfo> value) { 
-        this.result = value;
-    }
- 
+    private List<NutrientInfo> result;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -44,6 +28,22 @@ public class GetNutrientsWrapper
     @JsonSetter("meta")
     public void setMeta (MetaBase value) { 
         this.meta = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("result")
+    public List<NutrientInfo> getResult ( ) { 
+        return this.result;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("result")
+    public void setResult (List<NutrientInfo> value) { 
+        this.result = value;
     }
  
 }

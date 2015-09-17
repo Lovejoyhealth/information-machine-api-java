@@ -5,34 +5,21 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
+
 public class GetSingleUserStoreResponseBuilder {
     //the instance to build
     private GetSingleUserStoreResponse getSingleUserStoreResponse;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public GetSingleUserStoreResponseBuilder() {
         getSingleUserStoreResponse = new GetSingleUserStoreResponse();
     }
 
-    public GetSingleUserStoreResponseBuilder user(UserData user) {
-        getSingleUserStoreResponse.setUser(user);
-        return this;
-    }
-
-    public GetSingleUserStoreResponseBuilder id(Integer id) {
-        getSingleUserStoreResponse.setId(id);
-        return this;
-    }
-
-    public GetSingleUserStoreResponseBuilder storeName(String storeName) {
-        getSingleUserStoreResponse.setStoreName(storeName);
-        return this;
-    }
-
-    public GetSingleUserStoreResponseBuilder username(String username) {
-        getSingleUserStoreResponse.setUsername(username);
+    public GetSingleUserStoreResponseBuilder createdAt(String createdAt) {
+        getSingleUserStoreResponse.setCreatedAt(createdAt);
         return this;
     }
 
@@ -41,13 +28,18 @@ public class GetSingleUserStoreResponseBuilder {
         return this;
     }
 
+    public GetSingleUserStoreResponseBuilder id(Integer id) {
+        getSingleUserStoreResponse.setId(id);
+        return this;
+    }
+
     public GetSingleUserStoreResponseBuilder scrapeStatus(String scrapeStatus) {
         getSingleUserStoreResponse.setScrapeStatus(scrapeStatus);
         return this;
     }
 
-    public GetSingleUserStoreResponseBuilder createdAt(String createdAt) {
-        getSingleUserStoreResponse.setCreatedAt(createdAt);
+    public GetSingleUserStoreResponseBuilder storeName(String storeName) {
+        getSingleUserStoreResponse.setStoreName(storeName);
         return this;
     }
 
@@ -56,10 +48,19 @@ public class GetSingleUserStoreResponseBuilder {
         return this;
     }
 
+    public GetSingleUserStoreResponseBuilder user(UserData user) {
+        getSingleUserStoreResponse.setUser(user);
+        return this;
+    }
+
+    public GetSingleUserStoreResponseBuilder username(String username) {
+        getSingleUserStoreResponse.setUsername(username);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
-	public GetSingleUserStoreResponse build() {
-		return getSingleUserStoreResponse;
-	}
+    public GetSingleUserStoreResponse build() {
+        return getSingleUserStoreResponse;
+    }
 }

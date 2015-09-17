@@ -5,16 +5,17 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class NutrientData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5502341734881521512L;
+    private static final long serialVersionUID = 5394966069940013364L;
     private Double dvp;
-    private Double value;
-    private String name;
     private Integer id;
+    private String name;
+    private Double value;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -34,17 +35,17 @@ public class NutrientData
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("value")
-    public Double getValue ( ) { 
-        return this.value;
+    @JsonGetter("id")
+    public Integer getId ( ) { 
+        return this.id;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("value")
-    public void setValue (Double value) { 
-        this.value = value;
+    @JsonSetter("id")
+    public void setId (Integer value) { 
+        this.id = value;
     }
  
     /** GETTER
@@ -66,17 +67,17 @@ public class NutrientData
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("id")
-    public Integer getId ( ) { 
-        return this.id;
+    @JsonGetter("value")
+    public Double getValue ( ) { 
+        return this.value;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("id")
-    public void setId (Integer value) { 
-        this.id = value;
+    @JsonSetter("value")
+    public void setValue (Double value) { 
+        this.value = value;
     }
  
 }

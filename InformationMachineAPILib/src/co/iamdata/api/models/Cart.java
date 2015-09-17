@@ -5,16 +5,16 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class Cart 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5316539241279598578L;
+    private static final long serialVersionUID = 4820615537269796825L;
     private String cartId;
-    private String cartName;
     private List<CartItem> cartItems;
+    private String cartName;
     private String createdAt;
     private String updatedAt;
     /** GETTER
@@ -36,22 +36,6 @@ public class Cart
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("cart_name")
-    public String getCartName ( ) { 
-        return this.cartName;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("cart_name")
-    public void setCartName (String value) { 
-        this.cartName = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
     @JsonGetter("cart_items")
     public List<CartItem> getCartItems ( ) { 
         return this.cartItems;
@@ -63,6 +47,22 @@ public class Cart
     @JsonSetter("cart_items")
     public void setCartItems (List<CartItem> value) { 
         this.cartItems = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("cart_name")
+    public String getCartName ( ) { 
+        return this.cartName;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("cart_name")
+    public void setCartName (String value) { 
+        this.cartName = value;
     }
  
     /** GETTER

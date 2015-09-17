@@ -5,30 +5,15 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ConnectStoreWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5287396361980013244L;
-    private ConnectUserStoreResponse result;
+    private static final long serialVersionUID = 5734456445022440982L;
     private MetaBase meta;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("result")
-    public ConnectUserStoreResponse getResult ( ) { 
-        return this.result;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("result")
-    public void setResult (ConnectUserStoreResponse value) { 
-        this.result = value;
-    }
- 
+    private ConnectUserStoreResponse result;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -43,6 +28,22 @@ public class ConnectStoreWrapper
     @JsonSetter("meta")
     public void setMeta (MetaBase value) { 
         this.meta = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("result")
+    public ConnectUserStoreResponse getResult ( ) { 
+        return this.result;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("result")
+    public void setResult (ConnectUserStoreResponse value) { 
+        this.result = value;
     }
  
 }

@@ -5,66 +5,19 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class NutrientInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4752797284209803523L;
-    private Double recommendedDailyValue;
-    private String preferredUnitOfMeasurement;
-    private String unitOfMeasurement;
+    private static final long serialVersionUID = 4807177900123131555L;
     private String description;
-    private String name;
     private Integer id;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("recommended_daily_value")
-    public Double getRecommendedDailyValue ( ) { 
-        return this.recommendedDailyValue;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("recommended_daily_value")
-    public void setRecommendedDailyValue (Double value) { 
-        this.recommendedDailyValue = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("preferred_unit_of_measurement")
-    public String getPreferredUnitOfMeasurement ( ) { 
-        return this.preferredUnitOfMeasurement;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("preferred_unit_of_measurement")
-    public void setPreferredUnitOfMeasurement (String value) { 
-        this.preferredUnitOfMeasurement = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("unit_of_measurement")
-    public String getUnitOfMeasurement ( ) { 
-        return this.unitOfMeasurement;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("unit_of_measurement")
-    public void setUnitOfMeasurement (String value) { 
-        this.unitOfMeasurement = value;
-    }
- 
+    private String name;
+    private String preferredUnitOfMeasurement;
+    private Double recommendedDailyValue;
+    private String unitOfMeasurement;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -79,6 +32,22 @@ public class NutrientInfo
     @JsonSetter("description")
     public void setDescription (String value) { 
         this.description = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("id")
+    public Integer getId ( ) { 
+        return this.id;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("id")
+    public void setId (Integer value) { 
+        this.id = value;
     }
  
     /** GETTER
@@ -100,17 +69,49 @@ public class NutrientInfo
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("id")
-    public Integer getId ( ) { 
-        return this.id;
+    @JsonGetter("preferred_unit_of_measurement")
+    public String getPreferredUnitOfMeasurement ( ) { 
+        return this.preferredUnitOfMeasurement;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("id")
-    public void setId (Integer value) { 
-        this.id = value;
+    @JsonSetter("preferred_unit_of_measurement")
+    public void setPreferredUnitOfMeasurement (String value) { 
+        this.preferredUnitOfMeasurement = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("recommended_daily_value")
+    public Double getRecommendedDailyValue ( ) { 
+        return this.recommendedDailyValue;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("recommended_daily_value")
+    public void setRecommendedDailyValue (Double value) { 
+        this.recommendedDailyValue = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("unit_of_measurement")
+    public String getUnitOfMeasurement ( ) { 
+        return this.unitOfMeasurement;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("unit_of_measurement")
+    public void setUnitOfMeasurement (String value) { 
+        this.unitOfMeasurement = value;
     }
  
 }

@@ -7,18 +7,15 @@ package co.iamdata.api.http.response;
 
 import java.io.InputStream;
 import java.util.Map;
-
 import org.apache.http.client.methods.HttpRequestBase;
-
 public class HttpResponse {
     /**
      * Private store for properties
      */
     int statusCode;
     Map<String, String> headers;
-    InputStream rawBody;	
-	HttpRequestBase baseRequest;
-	
+    InputStream rawBody;
+	HttpRequestBase baseRequest;	
     /**
      * HTTP Status code of the http response
      */
@@ -61,7 +58,7 @@ public class HttpResponse {
         this(_code, _headers, _rawBody);
         this.baseRequest = _baseReq;
     }
-    
+ 
     /**
      * Shutdowns any pending http resources e.g., input streams and realses connection
      */

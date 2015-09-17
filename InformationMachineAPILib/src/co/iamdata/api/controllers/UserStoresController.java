@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import co.iamdata.api.http.client.HttpClient;
+
 import co.iamdata.api.http.request.HttpRequest;
 import co.iamdata.api.http.response.HttpResponse;
 import co.iamdata.api.http.response.HttpStringResponse;
@@ -62,14 +63,14 @@ public class UserStoresController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5306918913432810251L;
+            private static final long serialVersionUID = 5177552518926930345L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4733661868210794737L;
+            private static final long serialVersionUID = 5360486669096538105L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
@@ -82,7 +83,7 @@ public class UserStoresController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5596394120348008929L;
+            private static final long serialVersionUID = 4910392348505643276L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -131,14 +132,14 @@ public class UserStoresController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4716276911711361387L;
+            private static final long serialVersionUID = 5307081284818039564L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5005493708074390695L;
+            private static final long serialVersionUID = 4915967063421727048L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -149,7 +150,7 @@ public class UserStoresController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5504474160401389294L;
+            private static final long serialVersionUID = 5427242560355940428L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -176,6 +177,9 @@ public class UserStoresController extends BaseController {
 
         else if (responseCode == 500)
             throw new APIException("Internal Server Error", 500, response.getRawBody());
+
+        else if (responseCode == 422)
+            throw new APIException("Unprocessable entity", 422, response.getRawBody());
 
         else if ((responseCode < 200) || (responseCode > 206)) //[200,206] = HTTP OK
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
@@ -205,7 +209,7 @@ public class UserStoresController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4873801537016735019L;
+            private static final long serialVersionUID = 4664222455478290924L;
             {
                     put( "user_id", userId );
                     put( "id", id );
@@ -213,7 +217,7 @@ public class UserStoresController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5420212323289298476L;
+            private static final long serialVersionUID = 5584372664508297953L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -224,7 +228,7 @@ public class UserStoresController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5584801455802123050L;
+            private static final long serialVersionUID = 5121865673495197823L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -275,7 +279,7 @@ public class UserStoresController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5502291224605191765L;
+            private static final long serialVersionUID = 5398925018054470849L;
             {
                     put( "user_id", userId );
                     put( "id", id );
@@ -283,7 +287,7 @@ public class UserStoresController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5081492829156192657L;
+            private static final long serialVersionUID = 5240666478178484222L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -294,7 +298,7 @@ public class UserStoresController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5547025565455238936L;
+            private static final long serialVersionUID = 4650009982429842669L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -347,7 +351,7 @@ public class UserStoresController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5176869937312665025L;
+            private static final long serialVersionUID = 4832996252469517056L;
             {
                     put( "user_id", userId );
                     put( "id", id );
@@ -355,7 +359,7 @@ public class UserStoresController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5040088242251079213L;
+            private static final long serialVersionUID = 4779460184853084960L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -366,7 +370,7 @@ public class UserStoresController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5569443393853603837L;
+            private static final long serialVersionUID = 5696338746006007541L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );

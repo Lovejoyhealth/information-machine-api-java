@@ -5,17 +5,34 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class StoreInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5545970444321579314L;
+    private static final long serialVersionUID = 5692882384753361966L;
+    private Boolean canScrape;
     private Integer id;
+    private String imageLink;
     private String name;
     private Boolean restaurant;
-    private Boolean canScrape;
-    private String imageLink;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("can_scrape")
+    public Boolean getCanScrape ( ) { 
+        return this.canScrape;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("can_scrape")
+    public void setCanScrape (Boolean value) { 
+        this.canScrape = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -30,6 +47,22 @@ public class StoreInfo
     @JsonSetter("id")
     public void setId (Integer value) { 
         this.id = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("image_link")
+    public String getImageLink ( ) { 
+        return this.imageLink;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("image_link")
+    public void setImageLink (String value) { 
+        this.imageLink = value;
     }
  
     /** GETTER
@@ -62,38 +95,6 @@ public class StoreInfo
     @JsonSetter("restaurant")
     public void setRestaurant (Boolean value) { 
         this.restaurant = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("can_scrape")
-    public Boolean getCanScrape ( ) { 
-        return this.canScrape;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("can_scrape")
-    public void setCanScrape (Boolean value) { 
-        this.canScrape = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("image_link")
-    public String getImageLink ( ) { 
-        return this.imageLink;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("image_link")
-    public void setImageLink (String value) { 
-        this.imageLink = value;
     }
  
 }

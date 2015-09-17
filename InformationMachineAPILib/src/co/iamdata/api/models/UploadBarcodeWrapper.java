@@ -5,30 +5,15 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UploadBarcodeWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5253859025417327430L;
-    private UploadBarcodeResponse result;
+    private static final long serialVersionUID = 5645139701319228328L;
     private MetaBase meta;
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("result")
-    public UploadBarcodeResponse getResult ( ) { 
-        return this.result;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("result")
-    public void setResult (UploadBarcodeResponse value) { 
-        this.result = value;
-    }
- 
+    private UploadBarcodeResponse result;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -43,6 +28,22 @@ public class UploadBarcodeWrapper
     @JsonSetter("meta")
     public void setMeta (MetaBase value) { 
         this.meta = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("result")
+    public UploadBarcodeResponse getResult ( ) { 
+        return this.result;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("result")
+    public void setResult (UploadBarcodeResponse value) { 
+        this.result = value;
     }
  
 }

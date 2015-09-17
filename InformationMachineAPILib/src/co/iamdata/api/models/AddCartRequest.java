@@ -5,12 +5,13 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class AddCartRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5388259441455836763L;
+    private static final long serialVersionUID = 4899271224987666942L;
     private String cartName;
     private String description;
     /** GETTER

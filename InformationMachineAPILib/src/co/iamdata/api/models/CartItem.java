@@ -5,16 +5,17 @@
  */
 package co.iamdata.api.models;
 
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CartItem 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4937955613236332091L;
+    private static final long serialVersionUID = 5335952997293990165L;
     private String cartItemId;
-    private String upc;
-    private Integer quantity;
     private String createdAt;
+    private Integer quantity;
+    private String upc;
     private String updatedAt;
     /** GETTER
      * TODO: Write general description for this method
@@ -35,17 +36,17 @@ public class CartItem
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("upc")
-    public String getUpc ( ) { 
-        return this.upc;
+    @JsonGetter("created_at")
+    public String getCreatedAt ( ) { 
+        return this.createdAt;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("upc")
-    public void setUpc (String value) { 
-        this.upc = value;
+    @JsonSetter("created_at")
+    public void setCreatedAt (String value) { 
+        this.createdAt = value;
     }
  
     /** GETTER
@@ -67,17 +68,17 @@ public class CartItem
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("created_at")
-    public String getCreatedAt ( ) { 
-        return this.createdAt;
+    @JsonGetter("upc")
+    public String getUpc ( ) { 
+        return this.upc;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("created_at")
-    public void setCreatedAt (String value) { 
-        this.createdAt = value;
+    @JsonSetter("upc")
+    public void setUpc (String value) { 
+        this.upc = value;
     }
  
     /** GETTER

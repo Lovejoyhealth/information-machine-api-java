@@ -5,12 +5,13 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
+
 public class PriceDataBuilder {
     //the instance to build
     private PriceData priceData;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public PriceDataBuilder() {
@@ -26,11 +27,10 @@ public class PriceDataBuilder {
         priceData.setProductId(productId);
         return this;
     }
-
     /**
      * Build the instance with the given values
      */
-	public PriceData build() {
-		return priceData;
-	}
+    public PriceData build() {
+        return priceData;
+    }
 }

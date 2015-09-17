@@ -5,21 +5,17 @@
  */
 package co.iamdata.api.models;
 
-import java.util.List;
+import java.util.*;
+
 public class GetProductsWrapperBuilder {
     //the instance to build
     private GetProductsWrapper getProductsWrapper;
 
-	/**
+    /**
      * Default constructor to initialize the instance
      */
     public GetProductsWrapperBuilder() {
         getProductsWrapper = new GetProductsWrapper();
-    }
-
-    public GetProductsWrapperBuilder result(List<ProductData> result) {
-        getProductsWrapper.setResult(result);
-        return this;
     }
 
     public GetProductsWrapperBuilder meta(MetaPaged meta) {
@@ -27,10 +23,14 @@ public class GetProductsWrapperBuilder {
         return this;
     }
 
+    public GetProductsWrapperBuilder result(List<ProductData> result) {
+        getProductsWrapper.setResult(result);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
-	public GetProductsWrapper build() {
-		return getProductsWrapper;
-	}
+    public GetProductsWrapper build() {
+        return getProductsWrapper;
+    }
 }
