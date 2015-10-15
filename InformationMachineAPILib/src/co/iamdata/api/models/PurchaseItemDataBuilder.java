@@ -62,6 +62,11 @@ public class PurchaseItemDataBuilder {
         purchaseItemData.setUpc(upc);
         return this;
     }
+
+    public PurchaseItemDataBuilder upcResolvedAt(String upcResolvedAt) {
+        purchaseItemData.setUpcResolvedAt(upcResolvedAt);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

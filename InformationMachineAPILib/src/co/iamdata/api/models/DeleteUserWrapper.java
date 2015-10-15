@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class DeleteUserWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5444286408630976145L;
+    private static final long serialVersionUID = 4762542052234790017L;
     private MetaBase meta;
     private String result;
     /** GETTER

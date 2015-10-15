@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class TagInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5212483466065463463L;
+    private static final long serialVersionUID = 5010228538645267476L;
     private String description;
     private Integer id;
     private String name;

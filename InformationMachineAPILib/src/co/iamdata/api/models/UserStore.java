@@ -11,13 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UserStore 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5013270897663328157L;
+    private static final long serialVersionUID = 5359199518832654088L;
     private String createdAt;
     private String credentialsStatus;
     private Integer id;
     private String scrapeStatus;
     private String storeName;
     private Integer supermarketId;
+    private String type;
     private String updatedAt;
     private UserData user;
     private String username;
@@ -115,6 +116,22 @@ public class UserStore
     @JsonSetter("supermarket_id")
     public void setSupermarketId (Integer value) { 
         this.supermarketId = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
     }
  
     /** GETTER

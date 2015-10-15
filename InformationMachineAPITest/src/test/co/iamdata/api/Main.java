@@ -98,7 +98,7 @@ public class Main {
             throw new APITestException("Error: get user products");
         }
 
-        List<UserPurchase> userPurchases = purchasesController.userPurchasesGetAllUserPurchases(userId, 1, 15, null, null, null, null, null, null, null, null, true, false, false).getResult();
+        List<UserPurchase> userPurchases = purchasesController.userPurchasesGetAllUserPurchases(userId, null, 1, 15, null, null, null, null, null, null, null, null, true, false, false, null).getResult();
         if (userPurchases.size() == 0)
         {
             throw new APITestException("Error: get all user purchases");

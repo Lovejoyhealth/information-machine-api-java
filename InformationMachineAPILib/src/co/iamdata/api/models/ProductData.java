@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ProductData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5681623766795131472L;
+    private static final long serialVersionUID = 5099774168164108352L;
     private String amazonLink;
     private String brand;
     private String category;

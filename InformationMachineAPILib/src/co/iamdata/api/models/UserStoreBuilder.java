@@ -48,6 +48,11 @@ public class UserStoreBuilder {
         return this;
     }
 
+    public UserStoreBuilder type(String type) {
+        userStore.setType(type);
+        return this;
+    }
+
     public UserStoreBuilder updatedAt(String updatedAt) {
         userStore.setUpdatedAt(updatedAt);
         return this;

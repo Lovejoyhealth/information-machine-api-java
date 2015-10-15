@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PurchaseItemData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4736024758804731484L;
+    private static final long serialVersionUID = 5364682578935120055L;
     private Double discountedPrice;
     private Integer id;
     private String name;
@@ -21,6 +21,7 @@ public class PurchaseItemData
     private Double quantity;
     private String unitOfMeasurement;
     private String upc;
+    private String upcResolvedAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -163,6 +164,22 @@ public class PurchaseItemData
     @JsonSetter("upc")
     public void setUpc (String value) { 
         this.upc = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("upc_resolved_at")
+    public String getUpcResolvedAt ( ) { 
+        return this.upcResolvedAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("upc_resolved_at")
+    public void setUpcResolvedAt (String value) { 
+        this.upcResolvedAt = value;
     }
  
 }

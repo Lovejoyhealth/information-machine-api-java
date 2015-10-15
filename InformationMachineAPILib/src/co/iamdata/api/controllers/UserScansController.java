@@ -61,14 +61,14 @@ public class UserScansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5624241307780730112L;
+            private static final long serialVersionUID = 5618430631517629402L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5308179624445068900L;
+            private static final long serialVersionUID = 5440482360167862061L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -79,7 +79,7 @@ public class UserScansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5529270146426715849L;
+            private static final long serialVersionUID = 5335633545705184503L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -132,14 +132,14 @@ public class UserScansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5357132896608298566L;
+            private static final long serialVersionUID = 5508176195445191040L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5577377524415943125L;
+            private static final long serialVersionUID = 4757222999253168775L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
@@ -150,7 +150,7 @@ public class UserScansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4736167605693333723L;
+            private static final long serialVersionUID = 4995471533380351804L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );

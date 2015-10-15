@@ -45,6 +45,7 @@ public class UserPurchasesController extends BaseController {
     /**
      * Get history of purchases made by a specified user from connected stores, must specify "user_id".
      * @param    userId    Required parameter: TODO: type description here
+     * @param    storeId    Optional parameter: Check Lookup/Stores section for ID of all stores. E.g., Amazon = 4, Walmart = 3.
      * @param    page    Optional parameter: default:1
      * @param    perPage    Optional parameter: default:10, max:50
      * @param    purchaseDateFrom    Optional parameter: Define multiple date ranges by specifying "from" range date components, separated by comma ",". Equal number of "from" and "to" parameters is mandatory. Expected format: "yyyy-MM-dd, yyyy-MM-dd"e.g., "2015-04-18, 2015-06-25"
@@ -58,9 +59,11 @@ public class UserPurchasesController extends BaseController {
      * @param    fullResp    Optional parameter: default:false [Set true for response with purchase item details.]
      * @param    foodOnly    Optional parameter: default:false [Filter out food purchase items.]
      * @param    upcOnly    Optional parameter: default:false [Filter out purchase items with UPC.]
+     * @param    upcResolvedAfter    Optional parameter: List only purchases having UPC resolved by IM after specified date. Expected format: "yyyy-MM-dd"
 	 * @return	Returns the GetAllUserPurchasesWrapper response from the API call*/
     public GetAllUserPurchasesWrapper userPurchasesGetAllUserPurchases(
             final String userId,
+            final Integer storeId,
             final Integer page,
             final Integer perPage,
             final String purchaseDateFrom,
@@ -73,7 +76,8 @@ public class UserPurchasesController extends BaseController {
             final Double purchaseTotalGreater,
             final Boolean fullResp,
             final Boolean foodOnly,
-            final Boolean upcOnly
+            final Boolean upcOnly,
+            final String upcResolvedAfter
     ) throws IOException, APIException {
         //the base uri for api requests
         String baseUri = Configuration.baseUri;
@@ -84,15 +88,16 @@ public class UserPurchasesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4871975730609091984L;
+            private static final long serialVersionUID = 5002761171725718861L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4836654744659726804L;
+            private static final long serialVersionUID = 4772641901899301636L;
             {
+                    put( "store_id", storeId );
                     put( "page", page );
                     put( "per_page", perPage );
                     put( "purchase_date_from", purchaseDateFrom );
@@ -106,6 +111,7 @@ public class UserPurchasesController extends BaseController {
                     put( "full_resp", fullResp );
                     put( "food_only", foodOnly );
                     put( "upc_only", upcOnly );
+                    put( "upc_resolved_after", upcResolvedAfter );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
@@ -115,7 +121,7 @@ public class UserPurchasesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4878595363129790368L;
+            private static final long serialVersionUID = 4796102512415474735L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -166,7 +172,7 @@ public class UserPurchasesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5561252176901555756L;
+            private static final long serialVersionUID = 5401535677320154648L;
             {
                     put( "user_id", userId );
                     put( "purchase_id", purchaseId );
@@ -174,7 +180,7 @@ public class UserPurchasesController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5020773604493482544L;
+            private static final long serialVersionUID = 5750711024253070956L;
             {
                     put( "full_resp", fullResp );
                     put( "client_id", clientId );
@@ -186,7 +192,7 @@ public class UserPurchasesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5420374099567047418L;
+            private static final long serialVersionUID = 4873831862804984982L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -213,6 +219,89 @@ public class UserPurchasesController extends BaseController {
         //extract result from the http response
         GetSingleUserPurchaseWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetSingleUserPurchaseWrapper>(){});
+
+        return result;
+    }
+        
+    /**
+     * Get history of loyalty purchases made by a specified user from connected stores, must specify "user_id".
+     * @param    userId    Required parameter: TODO: type description here
+     * @param    storeId    Optional parameter: Check Lookup/Stores section for ID of all stores. E.g., Amazon = 4, Walmart = 3.
+     * @param    page    Optional parameter: default:1
+     * @param    perPage    Optional parameter: default:10, max:50
+     * @param    foodOnly    Optional parameter: default:false [Filter out food purchase items.]
+     * @param    upcOnly    Optional parameter: default:false [Filter out purchase items with UPC.]
+     * @param    upcResolvedAfter    Optional parameter: List only purchases having UPC resolved by IM after specified date. Expected format: "yyyy-MM-dd"
+	 * @return	Returns the GetAllUserLoyaltyPurchasesWrapper response from the API call*/
+    public GetAllUserLoyaltyPurchasesWrapper userPurchasesGetAllUserLoyaltyPurchases(
+            final String userId,
+            final Integer storeId,
+            final Integer page,
+            final Integer perPage,
+            final Boolean foodOnly,
+            final Boolean upcOnly,
+            final String upcResolvedAfter
+    ) throws IOException, APIException {
+        //the base uri for api requests
+        String baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder queryBuilder = new StringBuilder(baseUri);
+        queryBuilder.append("/v1/users/{user_id}/loyalty_purchases");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5243783880196574538L;
+            {
+                    put( "user_id", userId );
+            }});
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5080307466402226528L;
+            {
+                    put( "store_id", storeId );
+                    put( "page", page );
+                    put( "per_page", perPage );
+                    put( "food_only", foodOnly );
+                    put( "upc_only", upcOnly );
+                    put( "upc_resolved_after", upcResolvedAfter );
+                    put( "client_id", clientId );
+                    put( "client_secret", clientSecret );
+            }});
+
+        //validate and preprocess url
+        String queryUrl = APIHelper.cleanUrl(queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4862841303980399140L;
+            {
+                    put( "user-agent", "IAMDATA V1" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest request = clientInstance.get(queryUrl, headers, null);
+
+        //invoke request and get response
+        HttpResponse response = clientInstance.executeAsString(request);
+
+        //Error handling using HTTP status codes
+        int responseCode = response.getStatusCode();
+        if (responseCode == 404)
+            throw new APIException("Not Found", 404, response.getRawBody());
+
+        else if (responseCode == 401)
+            throw new APIException("Unauthorized", 401, response.getRawBody());
+
+        else if ((responseCode < 200) || (responseCode > 206)) //[200,206] = HTTP OK
+            throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
+
+        //extract result from the http response
+        GetAllUserLoyaltyPurchasesWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+                                                        new TypeReference<GetAllUserLoyaltyPurchasesWrapper>(){});
 
         return result;
     }

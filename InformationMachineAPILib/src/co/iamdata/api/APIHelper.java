@@ -230,6 +230,7 @@ public class APIHelper {
 
             Map<String, Object> objectMap = new LinkedHashMap<String, Object>();
             objectToMap(name, obj, objectMap, new HashSet<Integer>());
+            boolean hasParam = false;
 
             for (Map.Entry<String, Object> pair : objectMap.entrySet()) {
                 String paramKeyValPair;
@@ -239,13 +240,16 @@ public class APIHelper {
                 if(value == null)
                     continue;
 
+                hasParam = true;
                 //load element value as string
                 paramKeyValPair = String.format("%s=%s&", pair.getKey(), tryUrlEncode(value.toString()));
                 objBuilder.append(paramKeyValPair);
             }
-            
-            if ((objBuilder.length() > 1) && (objBuilder.charAt(objBuilder.length() - 1) == '&'))
-            	objBuilder.deleteCharAt(objBuilder.length()-1);
+
+            //remove the last &
+            if(hasParam) {
+                objBuilder.setLength(objBuilder.length() - 1);
+            }
         }catch (Exception ex){
         }
     }

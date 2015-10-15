@@ -43,6 +43,11 @@ public class ConnectUserStoreResponseBuilder {
         return this;
     }
 
+    public ConnectUserStoreResponseBuilder type(String type) {
+        connectUserStoreResponse.setType(type);
+        return this;
+    }
+
     public ConnectUserStoreResponseBuilder updatedAt(String updatedAt) {
         connectUserStoreResponse.setUpdatedAt(updatedAt);
         return this;

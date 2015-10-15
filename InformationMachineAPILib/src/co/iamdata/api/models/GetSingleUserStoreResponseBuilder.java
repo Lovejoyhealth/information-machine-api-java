@@ -43,6 +43,11 @@ public class GetSingleUserStoreResponseBuilder {
         return this;
     }
 
+    public GetSingleUserStoreResponseBuilder type(String type) {
+        getSingleUserStoreResponse.setType(type);
+        return this;
+    }
+
     public GetSingleUserStoreResponseBuilder updatedAt(String updatedAt) {
         getSingleUserStoreResponse.setUpdatedAt(updatedAt);
         return this;

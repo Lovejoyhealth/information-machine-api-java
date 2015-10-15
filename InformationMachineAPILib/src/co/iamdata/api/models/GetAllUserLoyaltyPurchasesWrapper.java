@@ -9,16 +9,16 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class GetProductPricesWrapper 
+public class GetAllUserLoyaltyPurchasesWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5284742764866536812L;
-    private MetaBase meta;
-    private List<PriceData> result;
+    private static final long serialVersionUID = 5648279121248264480L;
+    private MetaPaged meta;
+    private List<UserLoyaltyPurchase> result;
     /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("meta")
-    public MetaBase getMeta ( ) { 
+    public MetaPaged getMeta ( ) { 
         return this.meta;
     }
     
@@ -26,7 +26,7 @@ public class GetProductPricesWrapper
      * TODO: Write general description for this method
      */
     @JsonSetter("meta")
-    public void setMeta (MetaBase value) { 
+    public void setMeta (MetaPaged value) { 
         this.meta = value;
     }
  
@@ -34,7 +34,7 @@ public class GetProductPricesWrapper
      * TODO: Write general description for this method
      */
     @JsonGetter("result")
-    public List<PriceData> getResult ( ) { 
+    public List<UserLoyaltyPurchase> getResult ( ) { 
         return this.result;
     }
     
@@ -42,7 +42,7 @@ public class GetProductPricesWrapper
      * TODO: Write general description for this method
      */
     @JsonSetter("result")
-    public void setResult (List<PriceData> value) { 
+    public void setResult (List<UserLoyaltyPurchase> value) { 
         this.result = value;
     }
  

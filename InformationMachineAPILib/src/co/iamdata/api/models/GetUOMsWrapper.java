@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetUOMsWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5394937874420581804L;
+    private static final long serialVersionUID = 5086254285605226443L;
     private MetaBase meta;
     private List<UOMInfo> result;
     /** GETTER
