@@ -56,18 +56,17 @@ public class LookupController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4864920063586671463L;
+            private static final long serialVersionUID = 5177146853346749646L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5512255284939710378L;
+            private static final long serialVersionUID = 5471159901484959401L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -92,7 +91,7 @@ public class LookupController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetProductAlternativeTypesWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetProductAlternativeTypesWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetProductAlternativeTypesWrapper>(){});
 
         return result;
@@ -112,18 +111,17 @@ public class LookupController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4738571696566002249L;
+            private static final long serialVersionUID = 4824125207075206760L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5558589754648838054L;
+            private static final long serialVersionUID = 4781219550073849541L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -148,7 +146,7 @@ public class LookupController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetUOMsWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetUOMsWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetUOMsWrapper>(){});
 
         return result;
@@ -168,18 +166,17 @@ public class LookupController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4780991653884733603L;
+            private static final long serialVersionUID = 5653038216211723371L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4664640619421157943L;
+            private static final long serialVersionUID = 5686616787436128259L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -204,7 +201,7 @@ public class LookupController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetCategoriesWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetCategoriesWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetCategoriesWrapper>(){});
 
         return result;
@@ -224,18 +221,17 @@ public class LookupController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4618634002408056193L;
+            private static final long serialVersionUID = 5411407437772375834L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5550222306007650766L;
+            private static final long serialVersionUID = 5736490574393871179L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -260,7 +256,7 @@ public class LookupController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetNutrientsWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetNutrientsWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetNutrientsWrapper>(){});
 
         return result;
@@ -280,18 +276,17 @@ public class LookupController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4679413603191688115L;
+            private static final long serialVersionUID = 4642015489307993008L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5093405878938544338L;
+            private static final long serialVersionUID = 5683083577267277288L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -316,7 +311,7 @@ public class LookupController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetStoresWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetStoresWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetStoresWrapper>(){});
 
         return result;
@@ -336,18 +331,17 @@ public class LookupController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5490370757367571738L;
+            private static final long serialVersionUID = 4627368188843230332L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5447956046857693794L;
+            private static final long serialVersionUID = 5039576640767987075L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -372,7 +366,7 @@ public class LookupController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetTagsWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetTagsWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetTagsWrapper>(){});
 
         return result;

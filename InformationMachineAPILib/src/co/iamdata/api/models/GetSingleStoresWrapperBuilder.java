@@ -23,7 +23,7 @@ public class GetSingleStoresWrapperBuilder {
         return this;
     }
 
-    public GetSingleStoresWrapperBuilder result(GetSingleUserStoreResponse result) {
+    public GetSingleStoresWrapperBuilder result(UserStore result) {
         getSingleStoresWrapper.setResult(result);
         return this;
     }

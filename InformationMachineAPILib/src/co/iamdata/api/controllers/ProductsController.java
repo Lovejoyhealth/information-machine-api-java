@@ -7,6 +7,7 @@ package co.iamdata.api.controllers;
 
 import java.io.*;
 import java.util.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import co.iamdata.api.http.client.HttpClient;
@@ -68,7 +69,7 @@ public class ProductsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5269434005771213299L;
+            private static final long serialVersionUID = 5110123356654213201L;
             {
                     put( "name", name );
                     put( "product_identifier", productIdentifier );
@@ -79,13 +80,12 @@ public class ProductsController extends BaseController {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5081740523041922756L;
+            private static final long serialVersionUID = 5347297177510290398L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -110,7 +110,7 @@ public class ProductsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetProductsWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetProductsWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetProductsWrapper>(){});
 
         return result;
@@ -134,26 +134,25 @@ public class ProductsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4619902538551806261L;
+            private static final long serialVersionUID = 4959448257319652796L;
             {
                     put( "product_id", productId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4706731350555054169L;
+            private static final long serialVersionUID = 5573271137624629270L;
             {
                     put( "full_resp", fullResp );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5044985628183967258L;
+            private static final long serialVersionUID = 4840105236451837746L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -178,7 +177,7 @@ public class ProductsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetProductWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetProductWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetProductWrapper>(){});
 
         return result;
@@ -204,27 +203,26 @@ public class ProductsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4996632848253862634L;
+            private static final long serialVersionUID = 5622309655448009993L;
             {
                     put( "product_id", productId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4759054773724613355L;
+            private static final long serialVersionUID = 5639406569362787034L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4936326602655800548L;
+            private static final long serialVersionUID = 5315743090767428237L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -249,7 +247,7 @@ public class ProductsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetProductPurchasesWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetProductPurchasesWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetProductPurchasesWrapper>(){});
 
         return result;
@@ -271,19 +269,18 @@ public class ProductsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5601885694753283260L;
+            private static final long serialVersionUID = 5238679982564551265L;
             {
                     put( "product_ids", productIds );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5289513309574707627L;
+            private static final long serialVersionUID = 5534605503758809855L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -308,7 +305,7 @@ public class ProductsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetProductPricesWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetProductPricesWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetProductPricesWrapper>(){});
 
         return result;
@@ -332,20 +329,19 @@ public class ProductsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5330289956249139184L;
+            private static final long serialVersionUID = 5324411952518747212L;
             {
                     put( "product_ids", productIds );
                     put( "type_id", typeId );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4988337560749329993L;
+            private static final long serialVersionUID = 5345161018274828378L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -373,7 +369,7 @@ public class ProductsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetProductsAlternativesWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetProductsAlternativesWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetProductsAlternativesWrapper>(){});
 
         return result;
@@ -403,14 +399,14 @@ public class ProductsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4984686393926235941L;
+            private static final long serialVersionUID = 5641492998033473054L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4705800883042284977L;
+            private static final long serialVersionUID = 5204830888678411953L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
@@ -419,13 +415,12 @@ public class ProductsController extends BaseController {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5551914634171628017L;
+            private static final long serialVersionUID = 5460869066474141349L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -450,8 +445,124 @@ public class ProductsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetUserProducts result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetUserProducts result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetUserProducts>(){});
+
+        return result;
+    }
+        
+    /**
+     * Request POST model is simple list of strings. Each list item can be submitted in two variations: name only OR name+store [use semicolon ';' as name and store separator].Use "result" property in response, received after successful request submission, to list resolving results (endpoint below... GET v1/products/upc_resolve_response/{request_id}). Webhook JSON model example: { "name":"UB RDY RICE WHL BROWN", "store":"", "resolve_status":"Finished", "upcs":"123456789012,123456789012" }
+     * @param    payload    Required parameter: TODO: type description here
+     * @param    webhookUrl    Optional parameter: URL we'll use to ping you as soon as product name is resolved to UPC. Please find POST body above.
+	 * @return	Returns the GetUPCsByNameRequestWrapper response from the API call*/
+    public GetUPCsByNameRequestWrapper productsSubmitProductNamesForUpcResolve(
+            final NameResolveRequest payload,
+            final String webhookUrl
+    ) throws IOException, APIException, JsonProcessingException {
+        //the base uri for api requests
+        String baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder queryBuilder = new StringBuilder(baseUri);
+        queryBuilder.append("/v1/products/upc_resolve_request");
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5265890781876160331L;
+            {
+                    put( "webhook_url", webhookUrl );
+                    put( "client_id", clientId );
+                    put( "client_secret", clientSecret );
+            }});
+        //validate and preprocess url
+        String queryUrl = APIHelper.cleanUrl(queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4759288500912366921L;
+            {
+                    put( "user-agent", "IAMDATA V1" );
+                    put( "accept", "application/json" );
+                    put( "content-type", "application/json; charset=utf-8" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.serialize(payload));
+
+        //invoke request and get response
+        HttpResponse response = clientInstance.executeAsString(request);
+
+        //Error handling using HTTP status codes
+        int responseCode = response.getStatusCode();
+        if (responseCode == 401)
+            throw new APIException("Unauthorized", 401, response.getRawBody());
+
+        else if ((responseCode < 200) || (responseCode > 206)) //[200,206] = HTTP OK
+            throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
+
+        //extract result from the http response
+        GetUPCsByNameRequestWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
+                                                        new TypeReference<GetUPCsByNameRequestWrapper>(){});
+
+        return result;
+    }
+        
+    /**
+     * Use request ID recevied in "v1/products/upc_resolve_request/" [request initiate].Response model has four properties: "name" - product name submitted for UPC resolve"store" - store submitted (in combination with name)"resolve_status" - "Queued" or "Finished""upcs" - list of UPCs that correspond to submitted name or name+store request
+     * @param    requestId    Required parameter: TODO: type description here
+	 * @return	Returns the GetUPCsByNameResponseWrapper response from the API call*/
+    public GetUPCsByNameResponseWrapper productsGetUPCByProductNameAnswer(
+            final String requestId
+    ) throws IOException, APIException {
+        //the base uri for api requests
+        String baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder queryBuilder = new StringBuilder(baseUri);
+        queryBuilder.append("/v1/products/upc_resolve_response/{request_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5295344767268234963L;
+            {
+                    put( "request_id", requestId );
+            }});
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5299397772401768281L;
+            {
+                    put( "client_id", clientId );
+                    put( "client_secret", clientSecret );
+            }});
+        //validate and preprocess url
+        String queryUrl = APIHelper.cleanUrl(queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5466361722712504091L;
+            {
+                    put( "user-agent", "IAMDATA V1" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest request = clientInstance.get(queryUrl, headers, null);
+
+        //invoke request and get response
+        HttpResponse response = clientInstance.executeAsString(request);
+
+        //Error handling using HTTP status codes
+        int responseCode = response.getStatusCode();
+        if ((responseCode < 200) || (responseCode > 206)) //[200,206] = HTTP OK
+            throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
+
+        //extract result from the http response
+        GetUPCsByNameResponseWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
+                                                        new TypeReference<GetUPCsByNameResponseWrapper>(){});
 
         return result;
     }

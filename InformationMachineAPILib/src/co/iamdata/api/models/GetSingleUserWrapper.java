@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSingleUserWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5380027596984775065L;
+    private static final long serialVersionUID = 5354582589420464902L;
     private MetaBase meta;
-    private GetSingleUserResponse result;
+    private UserData result;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -34,7 +34,7 @@ public class GetSingleUserWrapper
      * TODO: Write general description for this method
      */
     @JsonGetter("result")
-    public GetSingleUserResponse getResult ( ) { 
+    public UserData getResult ( ) { 
         return this.result;
     }
     
@@ -42,7 +42,7 @@ public class GetSingleUserWrapper
      * TODO: Write general description for this method
      */
     @JsonSetter("result")
-    public void setResult (GetSingleUserResponse value) { 
+    public void setResult (UserData value) { 
         this.result = value;
     }
  

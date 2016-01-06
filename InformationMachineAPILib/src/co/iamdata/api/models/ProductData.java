@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ProductData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5099774168164108352L;
+    private static final long serialVersionUID = 4995132929366813213L;
     private String amazonLink;
     private String brand;
     private String category;
@@ -24,6 +24,7 @@ public class ProductData
     private String manufacturer;
     private String name;
     private List<NutrientData> nutrients;
+    private List<String> plus;
     private List<String> recipes;
     private Double score;
     private String servingSize;
@@ -225,6 +226,22 @@ public class ProductData
     @JsonSetter("nutrients")
     public void setNutrients (List<NutrientData> value) { 
         this.nutrients = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("plus")
+    public List<String> getPlus ( ) { 
+        return this.plus;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("plus")
+    public void setPlus (List<String> value) { 
+        this.plus = value;
     }
  
     /** GETTER

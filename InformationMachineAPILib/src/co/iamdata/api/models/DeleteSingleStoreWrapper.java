@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class DeleteSingleStoreWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5523561943929652874L;
+    private static final long serialVersionUID = 5058139135988686842L;
     private MetaBase meta;
     private String result;
     /** GETTER

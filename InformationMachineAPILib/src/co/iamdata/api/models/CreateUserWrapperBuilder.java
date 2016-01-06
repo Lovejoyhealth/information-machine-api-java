@@ -23,7 +23,7 @@ public class CreateUserWrapperBuilder {
         return this;
     }
 
-    public CreateUserWrapperBuilder result(RegisterUserResponse result) {
+    public CreateUserWrapperBuilder result(UserData result) {
         createUserWrapper.setResult(result);
         return this;
     }

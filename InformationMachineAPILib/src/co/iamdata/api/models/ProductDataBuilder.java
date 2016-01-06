@@ -78,6 +78,11 @@ public class ProductDataBuilder {
         return this;
     }
 
+    public ProductDataBuilder plus(List<String> plus) {
+        productData.setPlus(plus);
+        return this;
+    }
+
     public ProductDataBuilder recipes(List<String> recipes) {
         productData.setRecipes(recipes);
         return this;

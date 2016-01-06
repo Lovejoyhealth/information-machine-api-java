@@ -59,25 +59,24 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4909931486298794949L;
+            private static final long serialVersionUID = 4789381535163601010L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5434860742583999259L;
+            private static final long serialVersionUID = 5021796889510886550L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4615356408011340767L;
+            private static final long serialVersionUID = 4625660964506836193L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -105,7 +104,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetCartsWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetCartsWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetCartsWrapper>(){});
 
         return result;
@@ -129,25 +128,24 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5618757297335728386L;
+            private static final long serialVersionUID = 5088207283946692731L;
             {
                     put( "user_id", userId );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4854449335851785149L;
+            private static final long serialVersionUID = 4808852762191149391L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5408461414184673465L;
+            private static final long serialVersionUID = 5723305799937377697L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -156,7 +154,7 @@ public class UserCartsController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.jsonSerialize(payload));
+        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.serialize(payload));
 
         //invoke request and get response
         HttpResponse response = clientInstance.executeAsString(request);
@@ -179,7 +177,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        AddCartWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        AddCartWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<AddCartWrapper>(){});
 
         return result;
@@ -203,7 +201,7 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5215655628369493762L;
+            private static final long serialVersionUID = 4748211499982844360L;
             {
                     put( "user_id", userId );
                     put( "cart_id", cartId );
@@ -211,18 +209,17 @@ public class UserCartsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4965628056103706190L;
+            private static final long serialVersionUID = 4800142261515882652L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5085309920267551377L;
+            private static final long serialVersionUID = 5589541410648978882L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -250,7 +247,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetCartWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetCartWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetCartWrapper>(){});
 
         return result;
@@ -276,7 +273,7 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5515291810272157197L;
+            private static final long serialVersionUID = 5166128817307286350L;
             {
                     put( "user_id", userId );
                     put( "cart_id", cartId );
@@ -284,18 +281,17 @@ public class UserCartsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5008169785830985201L;
+            private static final long serialVersionUID = 5740513122511214368L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4842159270286175077L;
+            private static final long serialVersionUID = 5098486369362194855L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -304,7 +300,7 @@ public class UserCartsController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.jsonSerialize(payload));
+        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.serialize(payload));
 
         //invoke request and get response
         HttpResponse response = clientInstance.executeAsString(request);
@@ -327,7 +323,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        AddCartItemWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        AddCartItemWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<AddCartItemWrapper>(){});
 
         return result;
@@ -351,7 +347,7 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4946126969089299701L;
+            private static final long serialVersionUID = 5641778539742083030L;
             {
                     put( "user_id", userId );
                     put( "cart_id", cartId );
@@ -359,18 +355,17 @@ public class UserCartsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5008706384013369401L;
+            private static final long serialVersionUID = 5568413532130570925L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5505241309626499824L;
+            private static final long serialVersionUID = 5097549435120240617L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -398,7 +393,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        DeleteCartWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        DeleteCartWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<DeleteCartWrapper>(){});
 
         return result;
@@ -424,7 +419,7 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5417097173066918307L;
+            private static final long serialVersionUID = 5741386917619891026L;
             {
                     put( "user_id", userId );
                     put( "cart_id", cartId );
@@ -433,18 +428,17 @@ public class UserCartsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4653116388765439808L;
+            private static final long serialVersionUID = 4891633641313748753L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5558603231108647826L;
+            private static final long serialVersionUID = 4976679368898640096L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -472,7 +466,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        DeleteCartItemWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        DeleteCartItemWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<DeleteCartItemWrapper>(){});
 
         return result;
@@ -498,7 +492,7 @@ public class UserCartsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5324092890844919678L;
+            private static final long serialVersionUID = 5652834776477271478L;
             {
                     put( "user_id", userId );
                     put( "cart_id", cartId );
@@ -507,18 +501,17 @@ public class UserCartsController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5601586937261061431L;
+            private static final long serialVersionUID = 4855116636740580944L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5693320756092271376L;
+            private static final long serialVersionUID = 4687706252978755487L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -546,7 +539,7 @@ public class UserCartsController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        ExecuteCartWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        ExecuteCartWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<ExecuteCartWrapper>(){});
 
         return result;

@@ -34,7 +34,7 @@ public class HttpBodyRequest extends HttpRequest {
     public HttpBodyRequest(HttpMethod _method, String _queryUrl,
                            Map<String, String> _headers, String _body) {
         super(_method, _queryUrl, _headers, null);
-        this.body = _body;
+        this.body = _body!=null ? _body : "";
     }
 
     /**
@@ -52,6 +52,6 @@ public class HttpBodyRequest extends HttpRequest {
                            Map<String, String> _headers, String _body,
                            String _username, String _password) {
         super(_method, _queryUrl, _headers, null, _username, _password);
-        this.body = _body;
+        this.body = _body!=null ? _body : "";
     }
 }

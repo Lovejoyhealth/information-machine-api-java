@@ -18,6 +18,11 @@ public class UserStoreBuilder {
         userStore = new UserStore();
     }
 
+    public UserStoreBuilder accountLocked(Boolean accountLocked) {
+        userStore.setAccountLocked(accountLocked);
+        return this;
+    }
+
     public UserStoreBuilder createdAt(String createdAt) {
         userStore.setCreatedAt(createdAt);
         return this;
@@ -30,6 +35,16 @@ public class UserStoreBuilder {
 
     public UserStoreBuilder id(Integer id) {
         userStore.setId(id);
+        return this;
+    }
+
+    public UserStoreBuilder oauthAuthorizationUrl(String oauthAuthorizationUrl) {
+        userStore.setOauthAuthorizationUrl(oauthAuthorizationUrl);
+        return this;
+    }
+
+    public UserStoreBuilder oauthProvider(String oauthProvider) {
+        userStore.setOauthProvider(oauthProvider);
         return this;
     }
 
@@ -50,6 +65,11 @@ public class UserStoreBuilder {
 
     public UserStoreBuilder type(String type) {
         userStore.setType(type);
+        return this;
+    }
+
+    public UserStoreBuilder unlockUrl(String unlockUrl) {
+        userStore.setUnlockUrl(unlockUrl);
         return this;
     }
 

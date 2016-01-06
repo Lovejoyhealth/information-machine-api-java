@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetProductsAlternativesWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5415417572501179652L;
+    private static final long serialVersionUID = 5458999010057845727L;
     private MetaBase meta;
     private List<ProductAlternativesRecord> result;
     /** GETTER

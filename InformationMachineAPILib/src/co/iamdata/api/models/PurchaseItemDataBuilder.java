@@ -38,7 +38,7 @@ public class PurchaseItemDataBuilder {
         return this;
     }
 
-    public PurchaseItemDataBuilder product(PurchaseItemProduct product) {
+    public PurchaseItemDataBuilder product(ProductData product) {
         purchaseItemData.setProduct(product);
         return this;
     }

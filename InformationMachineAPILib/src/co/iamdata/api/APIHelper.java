@@ -16,7 +16,8 @@ import java.net.URLEncoder;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+ 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +32,8 @@ public class APIHelper {
         private static final long serialVersionUID = -174113593500315394L;
         {
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
         }
     };
 
@@ -38,7 +41,7 @@ public class APIHelper {
      * JSON Serialization of a given object.
      * @param	obj		The object to serialize into JSON
      * @return	The		serialized Json string representation of the given object */
-    public static String jsonSerialize(Object obj)
+    public static String serialize(Object obj)
             throws JsonProcessingException {
         if(null == obj)
             return null;
@@ -51,7 +54,7 @@ public class APIHelper {
      * @param	json	The json string to deserialize
      * @param	<T>	The type of the object to deserialize into
      * @return	The deserialized object */
-    public static <T extends Object> T jsonDeserialize(String json, TypeReference<T> typeReference)
+    public static <T extends Object> T deserialize(String json, TypeReference<T> typeReference)
             throws IOException {
         if (isNullOrWhiteSpace(json))
             return null;
@@ -64,7 +67,7 @@ public class APIHelper {
      * @param	jParser The json parser for reading json to deserialize
      * @param	<T>	The type of the object to deserialize into
      * @return	The deserialized object */
-    public static <T extends Object> T jsonDeserialize(JsonParser jParser, Class<T> typeReference)
+    public static <T extends Object> T deserialize(JsonParser jParser, Class<T> typeReference)
             throws IOException {
         if ((null == jParser) || (jParser.isClosed()))
             return null;
@@ -76,16 +79,16 @@ public class APIHelper {
      * JSON Deserialization of the given json string.
      * @param	json	The json string to deserialize
      * @return	The deserialized json as a Map */
-    public static LinkedHashMap<String, Object> jsonDeserialize(String json)
+    public static LinkedHashMap<String, Object> deserialize(String json)
             throws IOException {
         if (isNullOrWhiteSpace(json))
             return null;
 
         TypeReference<LinkedHashMap<String,Object>> typeRef 
             = new TypeReference<LinkedHashMap<String,Object>>() {};
-        return jsonDeserialize(json, typeRef);
+        return deserialize(json, typeRef);
     }
-    
+
     /**
      * Replaces template parameters in the given url
      * @param	queryBuilder    The query string builder to replace the template parameters
@@ -377,7 +380,6 @@ public class APIHelper {
                 } catch (Exception ex) {
                 }
             }
-
             // load fields
             Field[] fields = obj.getClass().getFields();
             for (Field field : fields) {

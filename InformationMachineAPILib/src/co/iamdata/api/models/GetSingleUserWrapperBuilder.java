@@ -23,7 +23,7 @@ public class GetSingleUserWrapperBuilder {
         return this;
     }
 
-    public GetSingleUserWrapperBuilder result(GetSingleUserResponse result) {
+    public GetSingleUserWrapperBuilder result(UserData result) {
         getSingleUserWrapper.setResult(result);
         return this;
     }

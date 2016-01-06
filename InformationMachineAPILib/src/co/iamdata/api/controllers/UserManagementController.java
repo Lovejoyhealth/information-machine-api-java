@@ -61,20 +61,19 @@ public class UserManagementController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5308976266320122790L;
+            private static final long serialVersionUID = 5108580370242814786L;
             {
                     put( "page", page );
                     put( "per_page", perPage );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5341622398387021094L;
+            private static final long serialVersionUID = 5602203503599190282L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -99,7 +98,7 @@ public class UserManagementController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetAllUsersWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetAllUsersWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetAllUsersWrapper>(){});
 
         return result;
@@ -121,18 +120,17 @@ public class UserManagementController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5044304068233773595L;
+            private static final long serialVersionUID = 4617725255220814298L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5414746266710977060L;
+            private static final long serialVersionUID = 5603000181819184640L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -141,7 +139,7 @@ public class UserManagementController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.jsonSerialize(payload));
+        final HttpRequest request = clientInstance.postBody(queryUrl, headers, APIHelper.serialize(payload));
 
         //invoke request and get response
         HttpResponse response = clientInstance.executeAsString(request);
@@ -164,7 +162,7 @@ public class UserManagementController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        CreateUserWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        CreateUserWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<CreateUserWrapper>(){});
 
         return result;
@@ -186,19 +184,18 @@ public class UserManagementController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4943479965353761327L;
+            private static final long serialVersionUID = 4658481101304877314L;
             {
                     put( "id", id );
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5004665953892782273L;
+            private static final long serialVersionUID = 5155286482772728844L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -223,7 +220,7 @@ public class UserManagementController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        DeleteUserWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        DeleteUserWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<DeleteUserWrapper>(){});
 
         return result;
@@ -245,25 +242,24 @@ public class UserManagementController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5560189907944438054L;
+            private static final long serialVersionUID = 4949156065001607530L;
             {
                     put( "id", id );
             }});
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5070273081072881462L;
+            private static final long serialVersionUID = 5646835515202178495L;
             {
                     put( "client_id", clientId );
                     put( "client_secret", clientSecret );
             }});
-
         //validate and preprocess url
         String queryUrl = APIHelper.cleanUrl(queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4710732211631005914L;
+            private static final long serialVersionUID = 4940136161343875210L;
             {
                     put( "user-agent", "IAMDATA V1" );
                     put( "accept", "application/json" );
@@ -288,7 +284,7 @@ public class UserManagementController extends BaseController {
             throw new APIException("HTTP Response Not OK", responseCode, response.getRawBody());
 
         //extract result from the http response
-        GetSingleUserWrapper result = APIHelper.jsonDeserialize(((HttpStringResponse)response).getBody(),
+        GetSingleUserWrapper result = APIHelper.deserialize(((HttpStringResponse)response).getBody(),
                                                         new TypeReference<GetSingleUserWrapper>(){});
 
         return result;

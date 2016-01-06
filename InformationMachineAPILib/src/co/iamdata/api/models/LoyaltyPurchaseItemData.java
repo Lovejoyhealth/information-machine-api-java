@@ -11,12 +11,29 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class LoyaltyPurchaseItemData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5469409328945689909L;
+    private static final long serialVersionUID = 5610564745701554154L;
+    private String createdAt;
     private Integer id;
     private String name;
-    private PurchaseItemProduct product;
+    private ProductData product;
     private String upc;
     private String upcResolvedAt;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("created_at")
+    public String getCreatedAt ( ) { 
+        return this.createdAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("created_at")
+    public void setCreatedAt (String value) { 
+        this.createdAt = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -53,7 +70,7 @@ public class LoyaltyPurchaseItemData
      * TODO: Write general description for this method
      */
     @JsonGetter("product")
-    public PurchaseItemProduct getProduct ( ) { 
+    public ProductData getProduct ( ) { 
         return this.product;
     }
     
@@ -61,7 +78,7 @@ public class LoyaltyPurchaseItemData
      * TODO: Write general description for this method
      */
     @JsonSetter("product")
-    public void setProduct (PurchaseItemProduct value) { 
+    public void setProduct (ProductData value) { 
         this.product = value;
     }
  

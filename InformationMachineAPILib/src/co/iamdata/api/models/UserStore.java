@@ -11,17 +11,37 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UserStore 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5359199518832654088L;
+    private static final long serialVersionUID = 4727298628572251166L;
+    private Boolean accountLocked;
     private String createdAt;
     private String credentialsStatus;
     private Integer id;
+    private String oauthAuthorizationUrl;
+    private String oauthProvider;
     private String scrapeStatus;
     private String storeName;
     private Integer supermarketId;
     private String type;
+    private String unlockUrl;
     private String updatedAt;
     private UserData user;
     private String username;
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("account_locked")
+    public Boolean getAccountLocked ( ) { 
+        return this.accountLocked;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("account_locked")
+    public void setAccountLocked (Boolean value) { 
+        this.accountLocked = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -68,6 +88,38 @@ public class UserStore
     @JsonSetter("id")
     public void setId (Integer value) { 
         this.id = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("oauth_authorization_url")
+    public String getOauthAuthorizationUrl ( ) { 
+        return this.oauthAuthorizationUrl;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("oauth_authorization_url")
+    public void setOauthAuthorizationUrl (String value) { 
+        this.oauthAuthorizationUrl = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("oauth_provider")
+    public String getOauthProvider ( ) { 
+        return this.oauthProvider;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("oauth_provider")
+    public void setOauthProvider (String value) { 
+        this.oauthProvider = value;
     }
  
     /** GETTER
@@ -132,6 +184,22 @@ public class UserStore
     @JsonSetter("type")
     public void setType (String value) { 
         this.type = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("unlock_url")
+    public String getUnlockUrl ( ) { 
+        return this.unlockUrl;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("unlock_url")
+    public void setUnlockUrl (String value) { 
+        this.unlockUrl = value;
     }
  
     /** GETTER

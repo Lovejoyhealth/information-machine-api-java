@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ProductAlternativeTypeInfo 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5536953468063667817L;
+    private static final long serialVersionUID = 5520414206106566539L;
     private String description;
     private Integer id;
     private String name;

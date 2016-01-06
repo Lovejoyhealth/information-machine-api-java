@@ -23,7 +23,7 @@ public class ConnectStoreWrapperBuilder {
         return this;
     }
 
-    public ConnectStoreWrapperBuilder result(ConnectUserStoreResponse result) {
+    public ConnectStoreWrapperBuilder result(UserStore result) {
         connectStoreWrapper.setResult(result);
         return this;
     }

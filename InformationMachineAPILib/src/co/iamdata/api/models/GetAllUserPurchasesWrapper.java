@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetAllUserPurchasesWrapper 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5152115464291492570L;
+    private static final long serialVersionUID = 4931185836862883324L;
     private MetaPaged meta;
     private List<UserPurchase> result;
     /** GETTER

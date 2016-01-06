@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class MetaPaged 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5753185094251083994L;
+    private static final long serialVersionUID = 5122202204641414797L;
     private String lastPage;
     private Integer maxNumberOfRequestsPerDay;
     private String nextPage;
@@ -19,7 +19,7 @@ public class MetaPaged
     private Integer perPage;
     private Integer remainingNumberOfRequest;
     private Double timeInEpochSecondTillReset;
-    private Integer totalCount;
+    private Integer totalNumberOfPages;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -135,17 +135,17 @@ public class MetaPaged
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("total_count")
-    public Integer getTotalCount ( ) { 
-        return this.totalCount;
+    @JsonGetter("total_number_of_pages")
+    public Integer getTotalNumberOfPages ( ) { 
+        return this.totalNumberOfPages;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("total_count")
-    public void setTotalCount (Integer value) { 
-        this.totalCount = value;
+    @JsonSetter("total_number_of_pages")
+    public void setTotalNumberOfPages (Integer value) { 
+        this.totalNumberOfPages = value;
     }
  
 }

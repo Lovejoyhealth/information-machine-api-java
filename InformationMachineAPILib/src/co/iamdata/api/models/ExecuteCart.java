@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ExecuteCart 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4697584438741234157L;
+    private static final long serialVersionUID = 4881094937791929809L;
     private String checkoutUrl;
     private String message;
     /** GETTER

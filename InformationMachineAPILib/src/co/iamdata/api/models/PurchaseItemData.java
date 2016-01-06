@@ -11,12 +11,12 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PurchaseItemData 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5364682578935120055L;
+    private static final long serialVersionUID = 5175914956351712465L;
     private Double discountedPrice;
     private Integer id;
     private String name;
     private Double price;
-    private PurchaseItemProduct product;
+    private ProductData product;
     private Integer purchaseId;
     private Double quantity;
     private String unitOfMeasurement;
@@ -90,7 +90,7 @@ public class PurchaseItemData
      * TODO: Write general description for this method
      */
     @JsonGetter("product")
-    public PurchaseItemProduct getProduct ( ) { 
+    public ProductData getProduct ( ) { 
         return this.product;
     }
     
@@ -98,7 +98,7 @@ public class PurchaseItemData
      * TODO: Write general description for this method
      */
     @JsonSetter("product")
-    public void setProduct (PurchaseItemProduct value) { 
+    public void setProduct (ProductData value) { 
         this.product = value;
     }
  

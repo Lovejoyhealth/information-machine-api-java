@@ -18,6 +18,11 @@ public class LoyaltyPurchaseItemDataBuilder {
         loyaltyPurchaseItemData = new LoyaltyPurchaseItemData();
     }
 
+    public LoyaltyPurchaseItemDataBuilder createdAt(String createdAt) {
+        loyaltyPurchaseItemData.setCreatedAt(createdAt);
+        return this;
+    }
+
     public LoyaltyPurchaseItemDataBuilder id(Integer id) {
         loyaltyPurchaseItemData.setId(id);
         return this;
@@ -28,7 +33,7 @@ public class LoyaltyPurchaseItemDataBuilder {
         return this;
     }
 
-    public LoyaltyPurchaseItemDataBuilder product(PurchaseItemProduct product) {
+    public LoyaltyPurchaseItemDataBuilder product(ProductData product) {
         loyaltyPurchaseItemData.setProduct(product);
         return this;
     }

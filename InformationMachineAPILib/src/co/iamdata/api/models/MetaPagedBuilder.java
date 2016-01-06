@@ -53,8 +53,8 @@ public class MetaPagedBuilder {
         return this;
     }
 
-    public MetaPagedBuilder totalCount(Integer totalCount) {
-        metaPaged.setTotalCount(totalCount);
+    public MetaPagedBuilder totalNumberOfPages(Integer totalNumberOfPages) {
+        metaPaged.setTotalNumberOfPages(totalNumberOfPages);
         return this;
     }
     /**
